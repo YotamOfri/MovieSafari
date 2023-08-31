@@ -24,7 +24,7 @@ export function HeroSection() {
   };
 
   return (
-    <div className="lg:min-h-[550px] lg:max-h-none  max-h-[300px] min-h-[300px] h-[40vh] overflow-hidden w-full relative">
+    <div className="lg:min-h-[550px] lg:max-h-none max-h-[300px] min-h-[300px] h-[50vh] overflow-hidden w-full relative">
       {FeatchedData && (
         <TrailerContext.Provider value={Trailercontext}>
           <TrailerRender details={FeatchedData}></TrailerRender>

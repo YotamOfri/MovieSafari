@@ -24,7 +24,7 @@ export function MainInformation({ details }) {
   const { id } = useParams();
   return (
     <div
-      className="w-full px-5 flex  sm:justify-start justify-center lg:mt-36 sm:mt-20 mt-36"
+      className="w-full px-5 flex  sm:justify-start justify-center lg:mt-20 sm:mt-20 mt-36"
       style={{ height: `calc(${100 / videoAspect}vw - 30vw)` }}
     >
       <div className="z-40 flex flex-col sm:justify-around justify-between sm:gap-0 gap-5 w-full">

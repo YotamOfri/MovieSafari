@@ -22,10 +22,10 @@ export function MainMovieInformation({ TrendingDetails, mediaType }) {
 
   return (
     <div
-      className="w-full px-5 flex  sm:justify-start justify-center lg:mt-36 sm:mt-20 mt-36"
+      className="w-full px-5 flex  sm:justify-start justify-center lg:mt-24 sm:mt-20 mt-36"
       style={{ height: `calc(${100 / videoAspect}vw - 30vw)` }}
     >
-      <div className="z-40 flex flex-col sm:justify-around justify-between sm:gap-0 gap-5 w-full">
+      <div className="z-40 flex flex-col pb-10 sm:justify-around justify-between sm:gap-0 gap-5 w-full">
         <div className="flex flex-col gap-10">
           <h1 className="sm:text-4xl lg:text-6xl text-3xl">
             {TrendingDetails.original_title}
@@ -69,4 +69,5 @@ export function MainMovieInformation({ TrendingDetails, mediaType }) {
 }
 MainMovieInformation.propTypes = {
   TrendingDetails: PropTypes.object,
+  mediaType: PropTypes.string,
 };

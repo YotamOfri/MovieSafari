@@ -19,7 +19,7 @@ export function InformationPage() {
 
   const informationContext = { FeatchedData, MediaType, link, setLink };
   return (
-    <div className="h-screen">
+    <div>
       <InformationContext.Provider value={informationContext}>
         <HeroSection></HeroSection>
         <Mainsection></Mainsection>

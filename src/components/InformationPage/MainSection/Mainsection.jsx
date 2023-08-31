@@ -11,9 +11,9 @@ export function Mainsection() {
   };
   console.log(tab);
   return (
-    <div className="flex flex-col gap-5 mx-5 ">
+    <div className="flex flex-col gap-5 mx-5  ">
       <div className=" border-b-4 border-gray-600 pt-9">
-        <div className="flex gap-10">
+        <div className="flex gap-10 ">
           {MediaType === "tv" && (
             <div className="relative  z-10" onClick={handleClick("tv")}>
               <button>Episodes</button>
