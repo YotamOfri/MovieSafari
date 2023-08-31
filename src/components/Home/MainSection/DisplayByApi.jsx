@@ -8,7 +8,7 @@ export function DisplayByApi({ URL }) {
     fetchTrendingAll(URL)
   );
   return (
-    <div className="sm:mt-10 sm:px-7 px-0 overflow-hidden">
+    <div className="sm:mt-10 px-7 overflow-hidden">
       {FeatchedData && FeatchedData.length > 0 && (
         <CardSlider FeatchedData={FeatchedData}></CardSlider>
       )}

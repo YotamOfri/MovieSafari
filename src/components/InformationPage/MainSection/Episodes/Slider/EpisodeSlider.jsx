@@ -11,7 +11,7 @@ export function EpisodeSlider({ FeatchedEpisodes }) {
     infinite: true,
     speed: 1000,
     slidesToShow: 4,
-    slidesToScroll: 5,
+    slidesToScroll: 4,
     initialSlide: 0,
     beforeChange: () => setIsScrolling(true),
     afterChange: () => setIsScrolling(false),
@@ -20,7 +20,7 @@ export function EpisodeSlider({ FeatchedEpisodes }) {
         breakpoint: 2024,
         settings: {
           slidesToShow: 4,
-          slidesToScroll: 7,
+          slidesToScroll: 4,
         },
       },
       {

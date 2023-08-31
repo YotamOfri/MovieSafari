@@ -33,7 +33,7 @@ export function HeroSection() {
     setVideoFinished,
   };
   return (
-    <div className="lg:min-h-[550px] lg:max-h-none max-h-[300px] min-h-[300px] h-[70vh] overflow-hidden w-full relative ">
+    <div className="lg:min-h-[550px] lg:max-h-none flex justify-center items-center max-h-[300px] min-h-[300px] h-[50vh] overflow-hidden w-full relative">
       {Trendingdetails && Trendingdetails.length > 0 && (
         <>
           <VideoContext.Provider value={videoContextValue}>

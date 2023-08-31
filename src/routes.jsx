@@ -6,14 +6,14 @@ import { EnterPage } from "./components/EnterPagePassword/EnterPage";
 import { InformationPage } from "./components/InformationPage/InformationPage";
 import { FramePlayer } from "./components/ApiPlayer/FramePlayer";
 import { FramePlayerTV } from "./components/ApiPlayer/FramePlayerTV";
-
+import { LoadingPage } from "./components/LoadingPage";
 function App() {
   const storedPassword = localStorage.getItem("password");
   const [isAuthorized, setIsAuthorized] = useState(storedPassword);
+  const [loading, setIsLoading] = useState(true);
   const password = import.meta.env.VITE_PASSWORD;
   const location = useLocation();
   const isPlayerRoute = location.pathname.includes("/player");
-
   // When isAuthorized changes, update local storage
   useEffect(() => {
     if (isAuthorized) {
@@ -29,6 +29,7 @@ function App() {
         !isPlayerRoute && "sm:h-fit min-h-[950px]"
       } `}
     >
+      {loading && <LoadingPage setIsLoading={setIsLoading}></LoadingPage>}
       {isAuthorized === password && !isPlayerRoute && <Navigation />}
       {isAuthorized === password && (
         <>
