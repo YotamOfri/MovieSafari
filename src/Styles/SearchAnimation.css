@@ -1,0 +1,36 @@
+/* SearchBar Animation */
+@keyframes animateWidth {
+  0% {
+    width: 2rem;
+  }
+  100% {
+    width: 14rem;
+  }
+}
+@keyframes animateHeight {
+  0% {
+    height: 2rem;
+  }
+  100% {
+    height: 20rem;
+  }
+}
+.animate-width {
+  animation: animateWidth 400ms ease-in-out forwards;
+}
+.animate-height {
+  animation: animateHeight 400ms ease-in-out forwards;
+}
+@media screen and (width < 640px) {
+  @keyframes animateWidthB {
+    0% {
+      width: 2rem;
+    }
+    100% {
+      width: 20rem;
+    }
+  }
+  .animate-width {
+    animation: animateWidthB 400ms ease-in-out forwards;
+  }
+}
