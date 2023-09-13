@@ -4,7 +4,6 @@ import Layout from "./Layout";
 import { useAuthorization } from "./utils/authUtils";
 import Player from "./pages/Modern/Player/Player";
 import Login from "./pages/Login/login";
-
 // Modern Section
 const Home = lazy(() => import("./pages/Modern/Home/Home"));
 const Search = lazy(() => import("./pages/Search/Search"));
