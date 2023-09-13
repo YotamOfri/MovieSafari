@@ -1,57 +1,57 @@
-import { Route, Routes, useLocation } from "react-router-dom";
-import { HomePage } from "./components/Home/HomePage";
-import { Navigation } from "./components/Navigation/Navigation";
-import { useState, useEffect } from "react";
-import { EnterPage } from "./components/EnterPagePassword/EnterPage";
-import { InformationPage } from "./components/InformationPage/InformationPage";
-import { FramePlayer } from "./components/ApiPlayer/FramePlayer";
-import { FramePlayerTV } from "./components/ApiPlayer/FramePlayerTV";
-import { LoadingPage } from "./components/LoadingPage";
-function App() {
-  const storedPassword = localStorage.getItem("password");
-  const [isAuthorized, setIsAuthorized] = useState(storedPassword);
-  const [loading, setIsLoading] = useState(true);
-  const password = import.meta.env.VITE_PASSWORD;
-  const location = useLocation();
-  const isPlayerRoute = location.pathname.includes("/player");
-  // When isAuthorized changes, update local storage
-  useEffect(() => {
-    if (isAuthorized) {
-      localStorage.setItem("password", isAuthorized);
-    } else {
-      localStorage.removeItem("password");
-    }
-  }, [isAuthorized]);
+import { Route, Routes } from "react-router-dom";
+import { lazy } from "react";
+import Layout from "./Layout";
+import { useAuthorization } from "./utils/authUtils";
+import Player from "./pages/Modern/Player/Player";
+// LogIn
+const Login = lazy(() => import("./pages/Login/login"));
+// Modern Section
+const Home = lazy(() => import("./pages/Modern/Home/Home"));
+const Search = lazy(() => import("./pages/Search/Search"));
 
+const Information = lazy(() =>
+  import("./pages/Modern/Information/information")
+);
+// Anime
+const AnimeHome = lazy(() => import("./pages/Anime/home/Home"));
+function MainRoutes() {
+  const { isAuthorized, setIsAuthorized } = useAuthorization();
+  const passwod = import.meta.env.VITE_PASSWORD;
   return (
-    <div
-      className={`relative bg-mainbg text-white font-roboto  sm:h-full sm:min-h-fit overflow-x-hidden  ${
-        !isPlayerRoute && "sm:h-fit min-h-[950px]"
-      } `}
-    >
-      {loading && <LoadingPage setIsLoading={setIsLoading}></LoadingPage>}
-      {isAuthorized === password && !isPlayerRoute && <Navigation />}
-      {isAuthorized === password && (
+    <>
+      {isAuthorized === passwod ? (
         <>
           <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/movies" element={<h1>Hello</h1>} />
-            <Route path="/tv" element={<h1>Hello</h1>} />
-            <Route path="/movie/player/:id" element={<FramePlayer />} />
-            <Route path="/movie/:id" element={<InformationPage />} />
-            <Route path="/tv/:id" element={<InformationPage />} />
+            <Route path="/" element={<Layout></Layout>}>
+              <Route index element={<Home></Home>}></Route>
+              <Route path="Search" element={<Search></Search>} />
+              <Route
+                path="movie/:id"
+                element={<Information type={"movie"}></Information>}
+              ></Route>
+              <Route
+                path="tv/:id"
+                element={<Information type={"tv"}></Information>}
+              ></Route>
+            </Route>
+            <Route path="/Anime" element={<Layout></Layout>}>
+              <Route index element={<AnimeHome></AnimeHome>} />
+            </Route>
             <Route
-              path="/tv/player/:id"
-              element={<FramePlayerTV></FramePlayerTV>}
-            />
+              path="movie/player/:id"
+              element={<Player type={"movie"}></Player>}
+            ></Route>
+            <Route
+              path="tv/player/:id"
+              element={<Player type={"tv"}></Player>}
+            ></Route>
           </Routes>
         </>
+      ) : (
+        <Login setIsAuthorized={setIsAuthorized}></Login>
       )}
-      {isAuthorized !== password && (
-        <EnterPage setIsAuthorized={setIsAuthorized} />
-      )}
-    </div>
+    </>
   );
 }
 
-export default App;
+export default MainRoutes;

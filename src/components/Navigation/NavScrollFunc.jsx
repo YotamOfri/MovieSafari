@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 export function NavScroll() {
   const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
   const [visible, setVisible] = useState(true);
