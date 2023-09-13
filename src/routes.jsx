@@ -3,7 +3,8 @@ import { lazy } from "react";
 import Layout from "./Layout";
 import { useAuthorization } from "./utils/authUtils";
 import Player from "./pages/Modern/Player/Player";
-import Login from "./pages/Login/login";
+// LogIn
+const Login = lazy(() => import("./pages/Login/Login"));
 // Modern Section
 const Home = lazy(() => import("./pages/Modern/Home/Home"));
 const Search = lazy(() => import("./pages/Search/Search"));
