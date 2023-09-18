@@ -16,6 +16,7 @@ const AnimeHome = lazy(() => import("./pages/Anime/home/Home"));
 const AnimeInformation = lazy(() =>
   import("./pages/Anime/Information/Information")
 );
+const AnimeSearch = lazy(() => import("./pages/Anime/Search/Search"));
 // Paths
 const routeConfig = [
   {
@@ -33,7 +34,7 @@ const routeConfig = [
     element: <Layout />,
     children: [
       { path: "", element: <AnimeHome /> },
-      { path: "Search", element: <h1>Anime Search</h1> },
+      { path: "Search", element: <AnimeSearch></AnimeSearch> },
       { path: ":id", element: <AnimeInformation></AnimeInformation> },
     ],
   },
