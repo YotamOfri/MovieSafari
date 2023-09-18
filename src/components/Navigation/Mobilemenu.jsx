@@ -7,7 +7,7 @@ export default function Mobilemenu({ isOpen, handleClickMenu }) {
   const location = useLocation();
   return (
     <div
-      className={`md:hidden flex flex-col gap-5 fixed duration-300 bottom-0 ease-in-out w-52 h-screen bg-[#0c0f18] pt-6 px-4 ${
+      className={`md:hidden flex flex-col gap-5 fixed duration-300 bottom-0 ease-in-out w-52 h-[100dvh] bg-[#0c0f18] pt-6 px-4 ${
         !isOpen ? "-right-full" : "right-0"
       }`}
     >

@@ -23,7 +23,7 @@ export default function EpisodesList({ selectedOption }) {
     <div className="flex flex-wrap gap-2 w-full  font-roboto text-gray-400 2xl:justify-start justify-center items-center">
       {divArray.map((index) => (
         <div
-          className={`2xl:w-[17.5%] md:w-[9%] w-[17.5%] text-sm 2xl:h-7 h-9 rounded-sm justify-center items-center flex cursor-pointer ${
+          className={`2xl:w-[17.5%] md:w-[9%] w-[17.5%] text-sm 2xl:h-7 h-9 rounded-sm hover:bg-slate-600 justify-center items-center flex cursor-pointer duration-300 ease-in-out transition-all ${
             index == episode ? `bg-slate-900` : "bg-slate-800"
           }`}
           onClick={handleClick(index)}
