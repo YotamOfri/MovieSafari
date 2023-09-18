@@ -1,7 +1,7 @@
 import Logo from "../../assets/Logo.svg";
 import { AiOutlineSearch } from "react-icons/ai";
 import { MdAccountCircle, MdMenu } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { NavScroll } from "./NavScrollFunc";
 import Desktopmenu from "./Desktopmenu";
 import Mobilemenu from "./Mobilemenu";
@@ -9,6 +9,7 @@ import { useState } from "react";
 export default function Navigation() {
   const { visible } = NavScroll();
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
   const handleClickMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -35,7 +36,9 @@ export default function Navigation() {
         {/* Search Section */}
         <div className="w-1/3 flex items-center justify-end space-x-4">
           <Link
-            to={"/Search"}
+            to={
+              !location.pathname.includes("Anime") ? "/Search" : "/Anime/Search"
+            }
             className="text-xl hover:text-blue-400 duration-300 ease-in-out"
           >
             <AiOutlineSearch size={30} />

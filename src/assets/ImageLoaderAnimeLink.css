@@ -1,0 +1,18 @@
+.animated {
+  animation: moveAnimation 7s ease-in-out infinite; /* Adjust animation duration as needed */
+}
+
+@keyframes moveAnimation {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  50% {
+    transform: translate(
+      -5px,
+      -5px
+    ); /* Adjust the movement distance as needed */
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}

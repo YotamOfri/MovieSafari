@@ -22,13 +22,11 @@ export default function Player({ type }) {
       `https://api.themoviedb.org/3/tv/${info[0]}/season/${info[1]}?language=en-US`
     )
   );
-  console.log(data);
   const LastEpisode = data?.episodes[data.episodes.length - 1].episode_number;
-
   return (
     <div className="relative">
       <Frame src={ServerArray[activeServer]} sandbox={false}></Frame>
-      <div className="flex w-full justify-center md:items-center mt-4 md:gap-2">
+      <div className="flex w-full justify-center md:items-center mt-4 gap-2">
         {info[2] > 1 && (
           <Link
             to={`/${type}/player/${info[0]}&season=${info[1]}&episode=${
