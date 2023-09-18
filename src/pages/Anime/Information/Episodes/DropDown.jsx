@@ -3,7 +3,7 @@ import { useContext } from "react";
 import PropTypes from "prop-types";
 export default function DropDown({ selectedOption, setSelectedOption }) {
   const { data } = useContext(Context);
-  const sections = Math.round(data.episodes.length / 100);
+  const sections = Math.ceil(data.episodes.length / 100);
   const handleOptionChange = (event) => {
     setSelectedOption(parseInt(event.target.value));
   };

@@ -23,7 +23,7 @@ export default function HeroSection() {
     <div className="relative  overflow-y-hidden h-fit w-fit flex flex-col  items-center">
       {status === "success" && (
         <>
-          <div className="sm:w-[70vw] sm:h-[calc(70vw/1.7)] w-[90vw] h-[calc(90vw/1.7)] min-h-[300px]">
+          <div className="2xl:w-[70vw] 2xl:h-[calc(70vw/1.7)] w-[90vw] h-[calc(90vw/1.7)] min-h-[300px]">
             <iframe
               src={servers[activeServer].url}
               allowFullScreen={true}

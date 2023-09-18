@@ -18,7 +18,7 @@ export default function Information() {
   );
   const contextValue = { episode, setEpisode, data };
   return (
-    <div className="md:pt-20 pt-24 flex gap-2 lg:flex-row flex-col-reverse h-fit justify-center items-center">
+    <div className="md:pt-20 pt-24 flex gap-2 2xl:flex-row flex-col-reverse h-fit 2xl:justify-center 2xl:items-start  items-center">
       <Context.Provider value={contextValue}>
         {status === "success" && (
           <>
