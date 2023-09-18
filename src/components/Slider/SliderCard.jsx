@@ -11,7 +11,7 @@ export default function SliderCard({ Data, isScrolling, TypeLink }) {
       ? `/${Data.media_type}/${id}`
       : `/tv/player/${id}&season=${Data.season_number}&episode=${Data.episode_number}`;
   return (
-    <Link to={!isScrolling && `${linkpath}`}>
+    <Link className="rounded-lg block" to={!isScrolling && `${linkpath}`}>
       <ImageLoad
         src={
           Data?.poster_path
@@ -20,7 +20,11 @@ export default function SliderCard({ Data, isScrolling, TypeLink }) {
             ? Data.still_path
             : ""
         }
-      ></ImageLoad>
+        imgclass="rounded-lg"
+        className={
+          "rounded-lg transition-all duration-300 ease-in-out hover:scale-100 scale-95  hover:shadow-lg hover:shadow-black"
+        }
+      />
     </Link>
   );
 }

@@ -59,10 +59,7 @@ export default function MainSlider({ data, TypeLink }) {
       </h2>
       <Slider {...settings}>
         {data.map((item) => (
-          <div
-            key={item.id}
-            className={` z-10 flex gap-5 px-1 cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out`}
-          >
+          <div key={item.id} className={`z-10 flex gap-5 px-1 cursor-pointer`}>
             <SliderCard
               Data={item}
               isScrolling={isScrolling}

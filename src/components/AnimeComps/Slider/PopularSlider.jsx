@@ -53,12 +53,15 @@ export default function MainSlider({ data }) {
         {data.map((item) => (
           <div
             key={item.id}
-            className={` z-10 flex gap-5 px-1 cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out`}
+            className={` z-10 flex gap-5 px-1 cursor-pointer `}
           >
             <ImageLoaderAnimeLink
               path={`${item.id}`}
               isScrolling={isScrolling}
               src={item.image}
+              className={
+                "rounded-lg transition-all duration-300 ease-in-out hover:scale-100 scale-95  hover:shadow-lg hover:shadow-black"
+              }
             ></ImageLoaderAnimeLink>
           </div>
         ))}

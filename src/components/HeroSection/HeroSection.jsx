@@ -21,7 +21,7 @@ export default function HeroSection({ id, type, Code }) {
             <div className="absolute top-0 md:h-[140%] h-[160%] w-full -z-10 ">
               <ImageLoad
                 src={HeroSectionDetails?.backdrop_path}
-                className="object-cover h-full w-full opacity-60 absolute -z-10"
+                className="object-cover h-full w-full opacity-60 absolute -z-10 "
               ></ImageLoad>
             </div>
           </>

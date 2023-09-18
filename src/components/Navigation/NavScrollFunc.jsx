@@ -15,5 +15,5 @@ export function NavScroll() {
     };
   }, [prevScrollPos]);
 
-  return { visible };
+  return { visible, prevScrollPos };
 }
