@@ -1,6 +1,8 @@
 import { Route, Routes } from "react-router-dom";
+import transition from "./transition";
 import { lazy } from "react";
 import Layout from "./Layout";
+import { AnimatePresence } from "framer-motion";
 import { useAuthorization } from "./utils/authUtils";
 import Player from "./pages/Modern/Player/Player";
 // LogIn
@@ -50,26 +52,32 @@ const routeConfig = [
 function MainRoutes() {
   const { isAuthorized, setIsAuthorized } = useAuthorization();
   const password = import.meta.env.VITE_PASSWORD;
+
   return (
     <>
-      {isAuthorized === password ? (
-        <Routes>
-          {routeConfig.map((route, index) => (
-            <Route key={index} path={route.path} element={route.element}>
-              {route.children &&
-                route.children.map((childRoute, childIndex) => (
-                  <Route
-                    key={childIndex}
-                    path={childRoute.path}
-                    element={childRoute.element}
-                  />
-                ))}
-            </Route>
-          ))}
-        </Routes>
-      ) : (
-        <Login setIsAuthorized={setIsAuthorized} />
-      )}
+      <AnimatePresence mode="wait">
+        {isAuthorized === password ? (
+          <Routes>
+            {routeConfig.map((route, index) => (
+              <Route key={index} path={route.path} element={route.element}>
+                {route.children &&
+                  route.children.map((childRoute, childIndex) => (
+                    <Route
+                      key={childIndex}
+                      path={childRoute.path}
+                      element={transition(
+                        childRoute.element,
+                        `${route.path}+${childIndex}`
+                      )}
+                    />
+                  ))}
+              </Route>
+            ))}
+          </Routes>
+        ) : (
+          <Login setIsAuthorized={setIsAuthorized} />
+        )}
+      </AnimatePresence>
     </>
   );
 }

@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import AniListImage from "../../../components/AnimeComps/ImageLoaders/AniListImage";
 import { Link } from "react-router-dom";
 export default function HeroSection({ data }) {
-  console.log(data);
   return (
     <div className="relative w-full">
       <div className="h-[500px] font-roboto md:h-[55vh] md:min-h-[550px] relative flex items-end gap-20">

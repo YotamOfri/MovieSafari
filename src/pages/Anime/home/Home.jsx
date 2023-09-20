@@ -14,21 +14,23 @@ export default function Home() {
     () => AnimefetchPouplar()
   );
   return (
-    <div className="flex flex-col items-center h-full w-full justify-center">
-      {status === "success" && <HeroSection data={data}></HeroSection>}
-      {status === "loading" && (
-        <div className="h-[500px] font-roboto md:h-[55vh] md:min-h-[550px] flex justify-center items-center">
+    <>
+      <div className="flex flex-col items-center h-full w-full justify-center">
+        {status === "success" && <HeroSection data={data}></HeroSection>}
+        {status === "loading" && (
+          <div className="h-[500px] font-roboto md:h-[55vh] md:min-h-[550px] flex justify-center items-center">
+            <LoadingAnimation></LoadingAnimation>
+          </div>
+        )}
+        {status === "error" && <ErrorComponent></ErrorComponent>}
+        {popularStatus === "success" && (
+          <PopularSlider data={popularData.results}></PopularSlider>
+        )}
+        {popularStatus === "loading" && status === "success" && (
           <LoadingAnimation></LoadingAnimation>
-        </div>
-      )}
-      {status === "error" && <ErrorComponent></ErrorComponent>}
-      {popularStatus === "success" && (
-        <PopularSlider data={popularData.results}></PopularSlider>
-      )}
-      {popularStatus === "loading" && status === "success" && (
-        <LoadingAnimation></LoadingAnimation>
-      )}
-      {popularStatus === "error" && <ErrorComponent></ErrorComponent>}
-    </div>
+        )}
+        {popularStatus === "error" && <ErrorComponent></ErrorComponent>}
+      </div>
+    </>
   );
 }
