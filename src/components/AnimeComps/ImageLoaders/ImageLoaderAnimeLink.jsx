@@ -16,11 +16,13 @@ export default function ImageLoaderAnimeLink({
     };
   }, [src]);
   return (
-    <div className={`bg-slate-900  ${className}  `}>
+    <div className={`bg-slate-900 w-full  ${className}  `}>
       <Link to={!isScrolling && `${path}`}>
         <img
           src={src}
-          className={`${!imageLoaded && "blur"} h-full rounded-lg`}
+          className={`${
+            !imageLoaded && "blur"
+          } w-full object-cover sm:h-[30vh] h-[250px] sm:min-h-[300px] rounded-lg`}
           loading="lazy"
           alt=""
         />

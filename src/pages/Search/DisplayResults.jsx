@@ -17,7 +17,7 @@ export default function DisplayResults({ FilterdResult }) {
               ></ImageLoad>
               <div className="absolute md:w-[290px] md:h-[400px] w-40 h-[250px] top-0 flex flex-col justify-between pt-3 ">
                 <div className="flex justify-end w-full">
-                  <h1 className="w-20 h-10 md:mr-[1px] mt-[3px] flex justify-center items-center rounded-md rounded-br-none rounded-tl-none bg-black text-white uppercase ">
+                  <h1 className="w-20 h-10 md:mr-[1px] mt-[3px] flex justify-center items-center rounded-md rounded-r-none rounded-tl-none bg-black text-white uppercase ">
                     {item.media_type}
                   </h1>
                 </div>

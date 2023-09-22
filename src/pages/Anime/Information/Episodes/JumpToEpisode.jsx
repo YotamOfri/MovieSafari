@@ -24,7 +24,7 @@ export default function JumpToEpisode() {
         value={query}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
-        className="bg-gray-700 outline-none"
+        className="bg-gray-700 outline-none 2xl:w-[120px] w-40 rounded-sm"
       />
     </div>
   );

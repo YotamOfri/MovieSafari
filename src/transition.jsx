@@ -7,7 +7,7 @@ const transition = (OriginalComponent, path) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 1 }}
-        transition={{ duration: 0.75, ease: [1, 1, 0.36, 1] }}
+        transition={{ duration: 0.25, ease: [1, 1, 0.36, 1] }}
       >
         {OriginalComponent}
       </motion.div>

@@ -9,12 +9,16 @@ export default function Search() {
   const { data, status } = useQuery(["AnimeSearchResult", query], () =>
     AnimefetchSearch(query)
   );
-  //   const FilterdResult =
-  //     SearchResult?.results?.length > 0 ? FilterList(SearchResult) : "No Result";
   const handleChange = (e) => {
     setQuery(e.target.value);
   };
-
+  console.log(data);
+  let filterdResults;
+  if (status === "success") {
+    filterdResults = data.results?.filter(
+      (result) => !result.id.includes("dub")
+    );
+  }
   return (
     <div className="md:pt-20 pt-24 px-4 flex flex-col gap-5 relative text-center text-white font-roboto">
       <h1 className="text-5xl">Anime Search</h1>
@@ -31,7 +35,7 @@ export default function Search() {
       </div>
       <div>
         {status === "success" && data?.results?.length > 0 && (
-          <DisplayResults Results={data.results}></DisplayResults>
+          <DisplayResults Results={filterdResults}></DisplayResults>
         )}
         {status === "loading" && (
           <div className="h-5/6 w-full flex justify-center items-start pt-5">

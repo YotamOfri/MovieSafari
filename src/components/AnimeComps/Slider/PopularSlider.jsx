@@ -10,8 +10,8 @@ export default function MainSlider({ data }) {
     dots: false,
     infinite: true,
     speed: 1000,
-    slidesToShow: 9,
-    slidesToScroll: 9,
+    slidesToShow: 5,
+    slidesToScroll: 5,
     initialSlide: 0,
     afterChange: () => setIsScrolling(false),
     beforeChange: () => setIsScrolling(true),
@@ -26,8 +26,15 @@ export default function MainSlider({ data }) {
       {
         breakpoint: 1500,
         settings: {
-          slidesToShow: 5,
-          slidesToScroll: 5,
+          slidesToShow: 4,
+          slidesToScroll: 4,
+        },
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
         },
       },
       {

@@ -13,12 +13,14 @@ export default function Information() {
     id.split("-episode-").length > 1 ? id.split("-episode-") : [id, "1"];
   const seriesId = split[0];
   const [episode, setEpisode] = useState(split[1].match(/\d+/g)[0]);
-  const { data, status } = useQuery(["AnimeInfo", seriesId], () =>
+  const { data: AnimeInfo, status } = useQuery(["AnimeInfo", seriesId], () =>
     AnimefetchInfo(seriesId)
   );
-  const contextValue = { episode, setEpisode, data };
+  const [data, setData] = useState(AnimeInfo);
+  if (status === "success" && data === undefined) setData(AnimeInfo);
+  const contextValue = { episode, setEpisode, data, setData };
   return (
-    <div className="md:pt-20 pt-24 flex gap-2 2xl:flex-row flex-col-reverse h-fit 2xl:justify-center 2xl:items-start  items-center">
+    <div className="md:pt-20 pt-24 flex gap-10 2xl:flex-row flex-col-reverse h-fit 2xl:justify-center 2xl:items-start  items-center">
       <Context.Provider value={contextValue}>
         {status === "success" && (
           <>
