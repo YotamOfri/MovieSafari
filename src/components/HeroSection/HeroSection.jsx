@@ -40,7 +40,7 @@ export default function HeroSection({ id, type, Code }) {
               <div className="hidden md:block text-white max-w-[700px] max-h-[200px]">
                 {HeroSectionDetails?.overview}
               </div>
-              <div className="flex gap-3 sm:pb-0 pb-3 sm:flex-row flex-col ">
+              <div className="flex gap-3 sm:pb-0 pb-3 flex-row flex-wrap ">
                 <div className="flex gap-3">
                   {HeroSectionDetails?.genres?.length > 0 &&
                     HeroSectionDetails.genres.map((genre) => {
