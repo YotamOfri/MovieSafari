@@ -6,7 +6,8 @@ export default function Desktopmenu() {
       <Link
         to={"/"}
         className={`text-lg hover:text-blue-400 duration-300 ease-in-out ${
-          !location.pathname.includes("Anime")
+          !location.pathname.includes("Anime") &&
+          !location.pathname.includes("Search")
             ? "border-b-2 border-blue-400"
             : ""
         }`}
@@ -16,7 +17,8 @@ export default function Desktopmenu() {
       <Link
         to={"/Anime"}
         className={`text-lg hover:text-blue-400 duration-300 ease-in-out ${
-          location.pathname.includes("Anime")
+          location.pathname.includes("Anime") &&
+          !location.pathname.includes("Search")
             ? "border-b-2 border-blue-400"
             : ""
         }`}

@@ -40,7 +40,9 @@ export default function Navigation() {
             to={
               !location.pathname.includes("Anime") ? "/Search" : "/Anime/Search"
             }
-            className="text-xl hover:text-blue-400 duration-300 ease-in-out"
+            className={`text-xl hover:text-blue-400 duration-300 ease-in-out ${
+              location.pathname.includes("Search") && "text-blue-400"
+            }`}
           >
             <AiOutlineSearch size={30} />
           </Link>

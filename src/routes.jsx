@@ -51,7 +51,6 @@ const routeConfig = [
 function MainRoutes() {
   const { isAuthorized, setIsAuthorized } = useAuthorization();
   const password = import.meta.env.VITE_PASSWORD;
-
   return (
     <>
       <AnimatePresence mode="wait">
@@ -80,5 +79,4 @@ function MainRoutes() {
     </>
   );
 }
-
 export default MainRoutes;

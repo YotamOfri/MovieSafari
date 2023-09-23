@@ -8,7 +8,6 @@ export function NavScroll() {
       setVisible(currentScrollPos <= 0 || currentScrollPos < prevScrollPos);
       setPrevScrollPos(currentScrollPos);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
