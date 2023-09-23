@@ -12,7 +12,7 @@ export default function Home() {
   );
   return (
     <>
-      <div className="text-white">
+      <div className="text-white ">
         {status === "success" && (
           <>
             <HeroSection

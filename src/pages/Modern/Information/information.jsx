@@ -5,7 +5,7 @@ import InformationMain from "./InformationMain";
 export default function Information({ type }) {
   const { id } = useParams();
   return (
-    <div className=" text-white">
+    <div className=" text-white flex flex-col gap-5">
       <HeroSection
         id={parseInt(id)}
         type={type}
