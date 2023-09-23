@@ -1,11 +1,10 @@
-import { useState } from "react";
+import PropTypes from "prop-types";
 import { useQuery } from "@tanstack/react-query";
-import fetchByUrl from "../../hooks/fetchByurl";
-import FilterList from "../../utils/FilterList";
+import fetchByUrl from "../../../hooks/fetchByurl";
+import FilterList from "../../../utils/FilterList";
 import DisplayResults from "./DisplayResults";
-import LoadingAnimation from "../../components/Status/LoadingAnimation";
-export default function Search() {
-  const [query, setQuery] = useState("");
+import LoadingAnimation from "../../../components/Status/LoadingAnimation";
+export default function Search({ query, setQuery }) {
   const { data: SearchResult, status } = useQuery(["SearchResult", query], () =>
     fetchByUrl(
       `https://api.themoviedb.org/3/search/multi?query=${query}&include_adult=false&language=en-US&page=1`
@@ -18,7 +17,7 @@ export default function Search() {
     setQuery(e.target.value);
   };
   return (
-    <div className="md:pt-20 pt-24 px-4 relative">
+    <div className="pt-10 px-4 relative">
       <div className="w-full flex justify-center items-center ">
         <input
           type="text"
@@ -48,3 +47,7 @@ export default function Search() {
     </div>
   );
 }
+Search.propTypes = {
+  query: PropTypes.string,
+  setQuery: PropTypes.func,
+};

@@ -9,7 +9,7 @@ import Player from "./pages/Modern/Player/Player";
 const Login = lazy(() => import("./pages/Login/Login"));
 // Modern Section
 const Home = lazy(() => import("./pages/Modern/Home/Home"));
-const Search = lazy(() => import("./pages/Search/Search"));
+const Search = lazy(() => import("./pages/Search/SearchMain"));
 const Information = lazy(() =>
   import("./pages/Modern/Information/information")
 );
@@ -18,7 +18,6 @@ const AnimeHome = lazy(() => import("./pages/Anime/home/Home"));
 const AnimeInformation = lazy(() =>
   import("./pages/Anime/Information/Information")
 );
-const AnimeSearch = lazy(() => import("./pages/Anime/Search/Search"));
 // Paths
 const routeConfig = [
   {
@@ -26,7 +25,7 @@ const routeConfig = [
     element: <Layout />,
     children: [
       { path: "", element: <Home /> },
-      { path: "Search", element: <Search /> },
+      { path: "Search", element: <Search Type={"Modern"} /> },
       { path: "movie/:id", element: <Information type="movie" /> },
       { path: "tv/:id", element: <Information type="tv" /> },
     ],
@@ -36,7 +35,7 @@ const routeConfig = [
     element: <Layout />,
     children: [
       { path: "", element: <AnimeHome /> },
-      { path: "Search", element: <AnimeSearch></AnimeSearch> },
+      { path: "Search", element: <Search Type={"Anime"} /> },
       { path: ":id", element: <AnimeInformation></AnimeInformation> },
     ],
   },

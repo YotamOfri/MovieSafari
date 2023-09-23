@@ -13,11 +13,12 @@ export default function Navigation() {
   const handleClickMenu = () => {
     setIsOpen(!isOpen);
   };
+  console.log(prevScrollPos);
   return (
     <div
       className={`md:bg-transparent bg-black/50 text-white h-20 w-full fixed duration-300 ease-in-out min-w-[280px] z-50 ${
         visible ? "opacity-100" : "opacity-0 pointer-events-none"
-      } ${prevScrollPos >= 100 && "md:bg-black/50"}`}
+      } ${prevScrollPos >= 100 && "md:bg-black md:bg-opacity-50"}`}
     >
       <div className="w-[100vw] flex items-center justify-between h-full px-4">
         {/* Logo Section */}

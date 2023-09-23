@@ -1,18 +1,16 @@
-import { useState } from "react";
+import PropTypes from "prop-types";
 import { useQuery } from "@tanstack/react-query";
 import DisplayResults from "./DisplayResutls";
 import LoadingAnimation from "../../../components/Status/LoadingAnimation";
 import AnimefetchSearch from "../../../hooks/Anime/AnimefetchSearch";
 import ErrorComponent from "../../../components/Status/ErrorComponent";
-export default function Search() {
-  const [query, setQuery] = useState("");
+export default function Search({ query, setQuery }) {
   const { data, status } = useQuery(["AnimeSearchResult", query], () =>
     AnimefetchSearch(query)
   );
   const handleChange = (e) => {
     setQuery(e.target.value);
   };
-  console.log(data);
   let filterdResults;
   if (status === "success") {
     filterdResults = data.results?.filter(
@@ -20,8 +18,7 @@ export default function Search() {
     );
   }
   return (
-    <div className="md:pt-20 pt-24 px-4 flex flex-col gap-5 relative text-center text-white font-roboto">
-      <h1 className="text-5xl">Anime Search</h1>
+    <div className="pt-10 px-4 flex flex-col gap-5 relative text-center text-white font-roboto">
       <div className="w-full flex justify-center items-center ">
         <input
           type="text"
@@ -56,3 +53,7 @@ export default function Search() {
     </div>
   );
 }
+Search.propTypes = {
+  query: PropTypes.string,
+  setQuery: PropTypes.func,
+};
