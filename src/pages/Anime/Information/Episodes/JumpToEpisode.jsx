@@ -14,6 +14,7 @@ export default function JumpToEpisode() {
       setEpisode(parseInt(e.target.value));
       const newURL = id; // New URL path
       window.history.pushState(null, "", newURL);
+      setQuery("");
     }
   };
   return (
@@ -24,7 +25,7 @@ export default function JumpToEpisode() {
         value={query}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
-        className="bg-gray-700 outline-none 2xl:w-[120px] w-40 rounded-sm"
+        className="bg-gray-700 outline-none 2xl:w-[120px] w-28 rounded-sm placeholder:text-xs"
       />
     </div>
   );

@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import AnimefetchInfo from "../../../../hooks/Anime/AnimefetchInfo";
 export default function Dubbing() {
-  const { data, setData, episode } = useContext(Context);
+  const { data, setData, episode, setEpisode } = useContext(Context);
   const [selectedOption, setSelectedOption] = useState(data.subOrDub);
   let TypeCheck;
   if (data.subOrDub === "sub") TypeCheck = data.id + "-dub";
@@ -14,8 +14,17 @@ export default function Dubbing() {
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
     setData(AnimeInfo);
-    console.log(AnimeInfo.totalEpisodes);
-    const newURL = TypeCheck + "-" + `episode-${episode}`;
+    console.log(AnimeInfo);
+    const newURL =
+      TypeCheck +
+      "-" +
+      `episode-${
+        AnimeInfo.episodes.length < episode
+          ? AnimeInfo.episodes.length
+          : episode
+      }`;
+    if (AnimeInfo.episodes.length < episode)
+      setEpisode(AnimeInfo.episodes.length);
     window.history.pushState(null, "", newURL);
   };
   return (
