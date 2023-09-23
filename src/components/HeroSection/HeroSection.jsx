@@ -26,8 +26,8 @@ export default function HeroSection({ id, type, Code }) {
             </div>
           </>
         )}
-        <div className=" px-4 h-full pt-20 md:pt-40 flex flex-col justify-between relative">
-          <div className="flex flex-col sm:gap-10">
+        <div className=" px-4 h-full pt-28 md:pt-40 flex flex-col justify-between relative">
+          <div className="flex flex-col gap-2 sm:gap-10">
             <div>
               <h1 className="text-4xl md:text-5xl text-white">
                 {type === "movie"
