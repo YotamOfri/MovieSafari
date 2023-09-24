@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Search from "./Search/Search";
+import Search from "./Anime/Search";
 import AnimeSearch from "./Modern/Search";
 import PropTypes from "prop-types";
 export default function SearchMain({ Type }) {

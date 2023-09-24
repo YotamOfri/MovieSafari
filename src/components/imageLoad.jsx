@@ -1,22 +1,19 @@
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-
-export default function ImageLoad({ className, src, imgclass }) {
+export default function ImageLoad({ className, src, imgclass, size }) {
   const [imageLoaded, setImageLoaded] = useState(false);
-
   useEffect(() => {
     const image = new Image();
-    image.src = `https://image.tmdb.org/t/p/original/${src}`;
+    image.src = `https://image.tmdb.org/t/p/${size ? size : "original"}/${src}`;
     image.onload = () => {
       setImageLoaded(true);
     };
   }, [src]);
-
   return (
     <div className={`bg-slate-900 shadow-md ${className} `}>
       <img
         src={`https://image.tmdb.org/t/p/${
-          imageLoaded ? "original" : "w300"
+          imageLoaded ? (size ? size : "original") : "w300"
         }/${src}`}
         className={`object-cover h-full w-full min-h-[200px] ${imgclass} ${
           !imageLoaded && "blur"
@@ -32,4 +29,5 @@ ImageLoad.propTypes = {
   className: PropTypes.string,
   imgclass: PropTypes.string,
   src: PropTypes.string.isRequired,
+  size: PropTypes.string,
 };

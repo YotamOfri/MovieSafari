@@ -24,6 +24,7 @@ export default function SliderCard({ Data, isScrolling, TypeLink }) {
         className={
           "rounded-lg transition-all duration-300 ease-in-out hover:scale-100 scale-95  hover:shadow-lg hover:shadow-black"
         }
+        size={"w780"}
       />
     </Link>
   );
