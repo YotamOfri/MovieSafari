@@ -5,11 +5,11 @@ import Layout from "./Layout";
 import { AnimatePresence } from "framer-motion";
 import { useAuthorization } from "./utils/authUtils";
 import Player from "./pages/Modern/Player/Player";
+import Search from "./pages/Search/SearchMain";
 // LogIn
 const Login = lazy(() => import("./pages/Login/Login"));
 // Modern Section
 const Home = lazy(() => import("./pages/Modern/Home/Home"));
-const Search = lazy(() => import("./pages/Search/SearchMain"));
 const Information = lazy(() =>
   import("./pages/Modern/Information/information")
 );

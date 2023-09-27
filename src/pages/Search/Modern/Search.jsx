@@ -4,7 +4,7 @@ import fetchByUrl from "../../../hooks/fetchByurl";
 import FilterList from "../../../utils/FilterList";
 import DisplayResults from "./DisplayResults";
 import LoadingAnimation from "../../../components/Status/LoadingAnimation";
-export default function Search({ query, setQuery }) {
+export default function Search({ query }) {
   const { data: SearchResult, status } = useQuery(["SearchResult", query], () =>
     fetchByUrl(
       `https://api.themoviedb.org/3/search/multi?query=${query}&include_adult=false&language=en-US&page=1`
@@ -13,22 +13,8 @@ export default function Search({ query, setQuery }) {
   const FilterdResult =
     SearchResult?.results?.length > 0 ? FilterList(SearchResult) : "No Result";
 
-  const handleChange = (e) => {
-    setQuery(e.target.value);
-  };
   return (
     <div className="pt-10 px-4 relative">
-      <div className="w-full flex justify-center items-center ">
-        <input
-          type="text"
-          name="search"
-          id="search"
-          placeholder="Search"
-          value={query}
-          onChange={handleChange}
-          className="outline-none w-64 md:w-[400px] bg-transparent border-b-2 border-slate-800 text-white"
-        />
-      </div>
       <div>
         {status === "success" && FilterdResult !== "No Result" && (
           <DisplayResults FilterdResult={FilterdResult}></DisplayResults>
