@@ -15,7 +15,7 @@ export default function Home() {
   );
   return (
     <>
-      <div className="flex flex-col items-center h-full w-full justify-center">
+      <div className="flex flex-col items-center h-full w-full justify-center overflow-x-hidden">
         {status === "success" && <HeroSection data={data}></HeroSection>}
         {status === "loading" && (
           <div className="h-[500px] font-roboto md:h-[55vh] md:min-h-[550px] flex justify-center items-center">
