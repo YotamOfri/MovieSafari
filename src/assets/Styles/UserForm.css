@@ -1,0 +1,8 @@
+#input-container > input:focus + label,
+#input-container > input:not(:placeholder-shown) + label {
+  top: -12px;
+  font-size: 13px;
+  background: rgba(22, 99, 151, 0.562);
+  padding: 0 4px;
+  border-radius: 2px;
+}

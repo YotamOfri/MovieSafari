@@ -8,23 +8,26 @@ export default function ImageLoad({ className, src, imgclass, size }) {
     image.onload = () => {
       setImageLoaded(true);
     };
-  }, [src]);
+    const imgElement = document.getElementById("preload-image");
+    if (imgElement) {
+      imgElement.loading = size ? "lazy" : "eager";
+    }
+  }, [src, size]);
   return (
     <div className={`bg-slate-900 shadow-md ${className} `}>
       <img
+        id="preload-image"
         src={`https://image.tmdb.org/t/p/${
           imageLoaded ? (size ? size : "original") : "w300"
         }/${src}`}
         className={`object-cover h-full w-full min-h-[200px] ${imgclass} ${
           !imageLoaded && "blur"
         }`}
-        loading="lazy"
         alt=""
       />
     </div>
   );
 }
-
 ImageLoad.propTypes = {
   className: PropTypes.string,
   imgclass: PropTypes.string,

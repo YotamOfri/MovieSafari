@@ -5,20 +5,27 @@ import { Link, useLocation } from "react-router-dom";
 import { NavScroll } from "./NavScrollFunc";
 import Desktopmenu from "./Desktopmenu";
 import Mobilemenu from "./Mobilemenu";
+import User from "../../pages/User/User";
 import { useState } from "react";
+import { AnimatePresence } from "framer-motion";
 export default function Navigation() {
   const { visible, prevScrollPos } = NavScroll();
   const [isOpen, setIsOpen] = useState(false);
+  const [isUserOpen, setIsUserOpen] = useState(false);
+  document.body.style.overflow = isUserOpen || isOpen ? "hidden" : "auto";
   const location = useLocation();
   const handleClickMenu = () => {
     setIsOpen(!isOpen);
   };
-  console.log(prevScrollPos);
+  const handleClickUser = () => {
+    setIsUserOpen(!isUserOpen);
+  };
+  // Styles
+  const NavBackground = !(prevScrollPos >= 100) && "md:bg-transparent ";
+  const NavOpacity = visible ? "opacity-100" : "opacity-0 pointer-events-none";
   return (
     <div
-      className={`md:bg-transparent bg-black/50 text-white h-20 w-full fixed duration-300 ease-in-out min-w-[280px] z-50 ${
-        visible ? "opacity-100" : "opacity-0 pointer-events-none"
-      } ${prevScrollPos >= 100 && "md:bg-black md:bg-opacity-50"}`}
+      className={`${NavOpacity} ${NavBackground} bg-black/50 text-white h-20 w-full fixed duration-300 ease-in-out min-w-[280px] z-50`}
     >
       <div className="w-[100vw] flex items-center justify-between h-full px-4">
         {/* Logo Section */}
@@ -30,10 +37,14 @@ export default function Navigation() {
         </Link>
         {/* Middle Section */}
         <Desktopmenu></Desktopmenu>
-        <Mobilemenu
-          isOpen={isOpen}
-          handleClickMenu={handleClickMenu}
-        ></Mobilemenu>
+        <AnimatePresence mode="wait">
+          {isOpen && (
+            <Mobilemenu
+              handleClickMenu={handleClickMenu}
+              handleClickUser={handleClickUser}
+            ></Mobilemenu>
+          )}
+        </AnimatePresence>
         {/* Search Section */}
         <div className="w-1/3 flex items-center justify-end space-x-4">
           <Link
@@ -49,6 +60,7 @@ export default function Navigation() {
           <MdAccountCircle
             size={30}
             className="cursor-pointer hidden md:flex hover:text-blue-400 duration-300 ease-in-out"
+            onClick={handleClickUser}
           />
           {/* Mobile Hamburger */}
           <MdMenu
@@ -58,6 +70,11 @@ export default function Navigation() {
           />
         </div>
       </div>
+      <AnimatePresence mode="wait">
+        {isUserOpen && (
+          <User onClick={handleClickUser} isUserOpen={isUserOpen}></User>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { Blurhash } from "react-blurhash";
 import PropTypes from "prop-types";
-import "../../../assets/ImageLoaderAnimeLink.css"; // Import the CSS file with your animation
-
+import "../../../assets/Styles/ImageLoaderAnimeLink.css";
 export default function AniListImage({ className, imgclass, src, blurHash }) {
   const [imageLoaded, setImageLoaded] = useState(false);
   useEffect(() => {
@@ -13,11 +12,11 @@ export default function AniListImage({ className, imgclass, src, blurHash }) {
     };
   }, [src]);
   return (
-    <div className={` ${className} `}>
+    <div className={className}>
       {imageLoaded ? (
         <img
           src={src}
-          className={`${imgclass} animated`} // Apply the animation class
+          className={`${imgclass} animated`}
           loading="lazy"
           alt=""
         />
@@ -29,7 +28,6 @@ export default function AniListImage({ className, imgclass, src, blurHash }) {
     </div>
   );
 }
-
 AniListImage.propTypes = {
   className: PropTypes.string,
   src: PropTypes.string.isRequired,

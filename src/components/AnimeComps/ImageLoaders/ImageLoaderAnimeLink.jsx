@@ -10,27 +10,25 @@ export default function ImageLoaderAnimeLink({
   const [imageLoaded, setImageLoaded] = useState(false);
   useEffect(() => {
     const image = new Image();
-    image.src = src; // Assume src is the URL from the AniList API
+    image.src = src;
     image.onload = () => {
       setImageLoaded(true);
     };
   }, [src]);
   return (
-    <div className={`bg-slate-900 w-full  ${className}  `}>
+    <div className={`bg-slate-900 w-full ${className}`}>
       <Link to={!isScrolling && `${path}`}>
         <img
           src={src}
-          className={`${
+          className={`w-full object-cover sm:h-[30vh] h-[250px] sm:min-h-[300px] rounded-lg ${
             !imageLoaded && "blur"
-          } w-full object-cover sm:h-[30vh] h-[250px] sm:min-h-[300px] rounded-lg`}
-          loading="lazy"
-          alt=""
+          }`}
+          alt="poster Image"
         />
       </Link>
     </div>
   );
 }
-
 ImageLoaderAnimeLink.propTypes = {
   className: PropTypes.string,
   src: PropTypes.string.isRequired,

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 export function NavScroll() {
-  const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
+  const [prevScrollPos, setPrevScrollPos] = useState(window.scrollY);
   const [visible, setVisible] = useState(true);
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollPos = window.pageYOffset;
+      const currentScrollPos = window.scrollY;
       setVisible(currentScrollPos <= 0 || currentScrollPos < prevScrollPos);
       setPrevScrollPos(currentScrollPos);
     };
@@ -13,6 +13,5 @@ export function NavScroll() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [prevScrollPos]);
-
   return { visible, prevScrollPos };
 }

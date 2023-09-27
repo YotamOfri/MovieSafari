@@ -1,7 +1,6 @@
 .animated {
   animation: moveAnimation 7s ease-in-out infinite;
 }
-
 @keyframes moveAnimation {
   0% {
     transform: translate(0px, 0px);

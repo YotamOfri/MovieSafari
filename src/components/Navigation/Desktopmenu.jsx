@@ -7,9 +7,8 @@ export default function Desktopmenu() {
         to={"/"}
         className={`text-lg hover:text-blue-400 duration-300 ease-in-out ${
           !location.pathname.includes("Anime") &&
-          !location.pathname.includes("Search")
-            ? "border-b-2 border-blue-400"
-            : ""
+          !location.pathname.includes("Search") &&
+          "border-b-2 border-blue-400"
         }`}
       >
         Home
@@ -18,9 +17,8 @@ export default function Desktopmenu() {
         to={"/Anime"}
         className={`text-lg hover:text-blue-400 duration-300 ease-in-out ${
           location.pathname.includes("Anime") &&
-          !location.pathname.includes("Search")
-            ? "border-b-2 border-blue-400"
-            : ""
+          !location.pathname.includes("Search") &&
+          "border-b-2 border-blue-400"
         }`}
       >
         Anime
