@@ -2,10 +2,27 @@ import Slider from "react-slick";
 import PropTypes from "prop-types";
 import { useState } from "react";
 import "slick-carousel/slick/slick.css";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import "slick-carousel/slick/slick-theme.css";
 import ImageLoaderAnimeLink from "../ImageLoaders/ImageLoaderAnimeLink";
 export default function MainSlider({ data }) {
   const [isScrolling, setIsScrolling] = useState(false);
+  const CustomPrevArrow = (props) => (
+    <button
+      {...props}
+      className="custom-prev-arrow absolute top-[42.5%] -left-12 hover:scale-[1.05] duration-300 ease-in-out text-gray-600 hover:text-white"
+    >
+      <IoIosArrowBack size={60} />
+    </button>
+  );
+  const CustomNextArrow = (props) => (
+    <button
+      {...props}
+      className="custom-next-arrow absolute top-[42.5%] -right-12 hover:scale-[1.05] duration-300 ease-in-out text-gray-600 hover:text-white"
+    >
+      <IoIosArrowForward size={60} />
+    </button>
+  );
   const settings = {
     dots: false,
     infinite: true,
@@ -52,6 +69,8 @@ export default function MainSlider({ data }) {
         },
       },
     ],
+    prevArrow: <CustomPrevArrow />,
+    nextArrow: <CustomNextArrow />,
   };
   return (
     <div className="pt-10 md:w-[95%] sm:w-[90%] w-[85%] text-white">

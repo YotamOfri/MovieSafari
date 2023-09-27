@@ -1,10 +1,27 @@
 import Slider from "react-slick";
 import PropTypes from "prop-types";
 import toPascalCase from "../../utils/toPascalCase";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import SliderCard from "./SliderCard";
+const CustomPrevArrow = (props) => (
+  <button
+    {...props}
+    className="custom-prev-arrow absolute top-[42.5%] -left-12 hover:scale-[1.05] duration-300 ease-in-out text-gray-600 hover:text-white"
+  >
+    <IoIosArrowBack size={60} />
+  </button>
+);
+const CustomNextArrow = (props) => (
+  <button
+    {...props}
+    className="custom-next-arrow absolute top-[42.5%] -right-12 hover:scale-[1.05] duration-300 ease-in-out text-gray-600 hover:text-white"
+  >
+    <IoIosArrowForward size={60} />
+  </button>
+);
 export default function MainSlider({ data, TypeLink }) {
   const [isScrolling, setIsScrolling] = useState(false);
   const settings = {
@@ -47,9 +64,12 @@ export default function MainSlider({ data, TypeLink }) {
         },
       },
     ],
+    prevArrow: <CustomPrevArrow />,
+    nextArrow: <CustomNextArrow />,
   };
+
   return (
-    <div className="pt-10 px-6">
+    <div className="pt-10 px-8">
       <h2 className="pb-2 text-2xl font-bold relative">
         {TypeLink === "info" && (
           <span className="text-white rounded-md z-10">
@@ -57,7 +77,7 @@ export default function MainSlider({ data, TypeLink }) {
           </span>
         )}
       </h2>
-      <Slider {...settings}>
+      <Slider {...settings} className="custom-slider">
         {data.map((item) => (
           <div key={item.id} className={`z-10 flex gap-5 px-1 cursor-pointer`}>
             <SliderCard
@@ -72,6 +92,7 @@ export default function MainSlider({ data, TypeLink }) {
     </div>
   );
 }
+
 MainSlider.propTypes = {
   data: PropTypes.array.isRequired,
   TypeLink: PropTypes.string,
