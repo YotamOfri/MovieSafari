@@ -73,7 +73,7 @@ export default function MainSlider({ data }) {
     nextArrow: <CustomNextArrow />,
   };
   return (
-    <div className="pt-10 md:w-[95%] sm:w-[90%] w-[85%] text-white">
+    <div className="pt-10 px-2 md:w-[95%] sm:w-[90%] w-[85%] text-white">
       <h2 className="pb-2 text-2xl font-bold relative">Trending</h2>
       <Slider {...settings}>
         {data.map((item) => (
