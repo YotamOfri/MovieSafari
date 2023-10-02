@@ -2,13 +2,59 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/src/assets/Logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Your website description goes here." />
+    <meta name="keywords" content="movie, cinema, films" />
+    <meta name="author" content="Your Name" />
+    <!-- Title -->
     <title>MovieSafari</title>
+    <!-- Favicon -->
+    <link rel="icon" href="src/assets/Logo.png" type="image/png" />
+
+    <!-- Open Graph Meta Tags (for social media) -->
+    <meta property="og:title" content="MovieSafari" />
+    <meta
+      property="og:description"
+      content="Discover the world of movies with MovieSafari."
+    />
+    <meta property="og:image" content="https://example.com/og-image.jpg" />
+    <meta property="og:url" content="https://example.com" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card Meta Tags (for Twitter) -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="MovieSafari" />
+    <meta
+      name="twitter:description"
+      content="Discover the world of movies with MovieSafari."
+    />
+    <meta
+      name="twitter:image"
+      content="https://raw.githubusercontent.com/YotamOfri/MovieSafari/485600cb625f0ff8d81013ded1df32e85f5db00c/src/assets/Logo.svg"
+    />
+
+    <!-- Canonical Link (specify the preferred version of a page) -->
+    <link rel="canonical" href="https://moviesafaris.com/" />
+
+    <!-- Robots Meta Tags (control search engine indexing) -->
+    <meta name="robots" content="index,follow" />
+    <!-- To allow indexing and following -->
+
+    <!-- Language and Content Type -->
+    <meta http-equiv="content-language" content="en" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+    <!-- Google Site Verification (verify ownership) -->
+    <meta name="google-site-verification" content="your-verification-code" />
+
+    <!-- Apple Touch Icons (for iOS devices) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="src/assets/Logo.svg" />
+
+    <!-- Manifest File (for progressive web apps) -->
+    <link rel="manifest" href="/public/manifest.json" />
+    <script type="module" src="/src/main.jsx"></script>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
-!

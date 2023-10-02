@@ -37,14 +37,12 @@ export default function Navigation() {
         </Link>
         {/* Middle Section */}
         <Desktopmenu></Desktopmenu>
-        <AnimatePresence mode="wait">
-          {isOpen && (
-            <Mobilemenu
-              handleClickMenu={handleClickMenu}
-              handleClickUser={handleClickUser}
-            ></Mobilemenu>
-          )}
-        </AnimatePresence>
+        {isOpen && (
+          <Mobilemenu
+            handleClickMenu={handleClickMenu}
+            handleClickUser={handleClickUser}
+          ></Mobilemenu>
+        )}
         {/* Search Section */}
         <div className="w-1/3 flex items-center justify-end space-x-4">
           <Link
@@ -62,6 +60,7 @@ export default function Navigation() {
             className="cursor-pointer hidden md:flex hover:text-blue-400 duration-300 ease-in-out"
             onClick={handleClickUser}
           />
+
           {/* Mobile Hamburger */}
           <MdMenu
             onClick={handleClickMenu}

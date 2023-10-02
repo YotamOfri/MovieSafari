@@ -1,0 +1,25 @@
+{
+  "name": "MovieSafari",
+  "short_name": "MovieSafari",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#f2c541",
+  "description": "Discover the world of movies with MovieSafari.",
+  "icons": [
+    {
+      "src": "../src/assets/Logo.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "../src/assets/Logo.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "orientation": "portrait",
+  "scope": "/",
+  "permissions": [],
+  "categories": ["entertainment"]
+}

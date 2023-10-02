@@ -24,8 +24,8 @@ export default function Information() {
       <Context.Provider value={contextValue}>
         {status === "success" && (
           <>
-            <Episodes data={data} episode={episode}></Episodes>
-            <HeroSection data={data} episode={episode}></HeroSection>
+            <Episodes></Episodes>
+            <HeroSection></HeroSection>
           </>
         )}
         {status === "loading" && <LoadingAnimation></LoadingAnimation>}

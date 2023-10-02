@@ -6,7 +6,7 @@ import { useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import SliderCard from "./SliderCard";
-const CustomPrevArrow = (props) => (
+const CustomPrevArrow = ({ currentSlide, slideCount, ...props }) => (
   <button
     {...props}
     className="custom-prev-arrow absolute top-[42.5%] -left-12 hover:scale-[1.05] duration-300 ease-in-out text-gray-600 hover:text-white"
@@ -14,7 +14,7 @@ const CustomPrevArrow = (props) => (
     <IoIosArrowBack size={60} />
   </button>
 );
-const CustomNextArrow = (props) => (
+const CustomNextArrow = ({ currentSlide, slideCount, ...props }) => (
   <button
     {...props}
     className="custom-next-arrow absolute top-[42.5%] -right-12 hover:scale-[1.05] duration-300 ease-in-out text-gray-600 hover:text-white"
@@ -22,6 +22,7 @@ const CustomNextArrow = (props) => (
     <IoIosArrowForward size={60} />
   </button>
 );
+
 export default function MainSlider({ data, TypeLink }) {
   const [isScrolling, setIsScrolling] = useState(false);
   const settings = {
@@ -96,4 +97,13 @@ export default function MainSlider({ data, TypeLink }) {
 MainSlider.propTypes = {
   data: PropTypes.array.isRequired,
   TypeLink: PropTypes.string,
+};
+CustomPrevArrow.propTypes = {
+  currentSlide: PropTypes.number.isRequired,
+  slideCount: PropTypes.number.isRequired,
+};
+
+CustomNextArrow.propTypes = {
+  currentSlide: PropTypes.number.isRequired,
+  slideCount: PropTypes.number.isRequired,
 };
