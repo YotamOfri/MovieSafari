@@ -67,7 +67,7 @@ As MovieSafari is a web-based platform, there's no need for installation. You ca
 
 MovieSafari is built using several cutting-edge technologies, including:
 
-[![My Skills](https://skillicons.dev/icons?i=react,tailwind,figma,html,css&perline=5)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=react,tailwind,netlify,figma,html,css&perline=6)](https://skillicons.dev)
 
 - **React:** We use React for building the dynamic and interactive user interface of our platform.
 
