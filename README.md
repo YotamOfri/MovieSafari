@@ -77,31 +77,10 @@ MovieSafari is built using a variety of technologies:
 
 MovieSafari is built using a variety of technologies:
 
-<div style="display: flex; justify-content: center; width: 100%; gap: 20px; flex-wrap: wrap;">
-  <!-- React -->
-  <div style="display: flex; align-items: center;">
-    <img src="./public/icons/react.svg" alt="React" width="32" height="32"/>
-    <span>React</span>
-  </div>
-  <!-- Tailwind -->
-  <div style="display: flex; align-items: center;">
-    <img src="./public/icons/tailwindcss.svg" alt="Tailwind CSS" width="32" height="32"/>
-    <span>Tailwind CSS</span>
-  </div>
-  <!-- TMDB API -->
-  <div style="display: flex; align-items: center;">
-    <img src="./public/icons/tmdb.svg" alt="TMDB API" width="32" height="32"/>
-    <span>TMDB API</span>
-  </div>
-  <!-- Axios Fetch -->
-  <div style="display: flex; align-items: center;">
-    <img src="./public/icons/axios.svg" alt="Axios" width="32" height="32"/>
-    <span>Axios Fetch</span>
-  </div>
-  <!-- Framer Motion -->
-  <div style="display: flex; align-items: center;">
-    <img src="./public/icons/framer-motion.svg" alt="Framer Motion" width="32" height="32"/>
-    <span>Framer Motion</span>
+<div align="center">
+  <div style="display: flex; align-items: flex-start;">
+    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=anuraghazra&layout=compact&show_icons=true&title_color=ffffff&icon_color=34abeb&text_color=daf7dc&bg_color=151515"/>
+    <img src="https://github-readme-stats.vercel.app/api?username=anuraghazra&show_icons=true&title_color=ffffff&icon_color=34abeb&text_color=daf7dc&bg_color=151515" />
   </div>
 </div>
 
