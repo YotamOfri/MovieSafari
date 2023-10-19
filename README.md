@@ -67,28 +67,15 @@ As MovieSafari is a web-based platform, there's no need for installation. You ca
 
 MovieSafari is built using several cutting-edge technologies, including:
 
-## Technologies Used
+[![My Skills](https://skillicons.dev/icons?i=react,tailwind,figma,html,css&perline=5)](https://skillicons.dev)
 
-MovieSafari is built using a variety of technologies:
+- **React:** We use React for building the dynamic and interactive user interface of our platform.
 
-<div align="center">
+- **TMDB API:** Our streaming platform utilizes APIs to fetch and deliver content, ensuring a seamless and up-to-date streaming experience.
 
-## Technologies Used
+- **Tailwind CSS:** Tailwind CSS is used for styling, providing a clean and responsive design.
 
-MovieSafari is built using a variety of technologies:
-
-<div align="center">
-  <div style="display: flex; align-items: flex-start;">
-    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=anuraghazra&layout=compact&show_icons=true&title_color=ffffff&icon_color=34abeb&text_color=daf7dc&bg_color=151515"/>
-    <img src="https://github-readme-stats.vercel.app/api?username=anuraghazra&show_icons=true&title_color=ffffff&icon_color=34abeb&text_color=daf7dc&bg_color=151515" />
-  </div>
-</div>
-
-We also incorporate various other technologies to enhance performance, security, and the overall user experience.
-
-</div>
-
-We also incorporate various other technologies to enhance performance, security, and the overall user experience.
+- **More:** We also incorporate various other technologies to enhance performance, security, and the overall user experience.
 
 ## Contributing
 
