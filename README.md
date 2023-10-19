@@ -79,29 +79,29 @@ MovieSafari is built using a variety of technologies:
 
 <div style="display: flex; justify-content: center; width: 100%; gap: 20px; flex-wrap: wrap;">
   <!-- React -->
-  <div style="display: flex; flex-direction: column; align-items: center;">
+  <div style="display: flex; align-items: center;">
     <img src="./public/icons/react.svg" alt="React" width="32" height="32"/>
-    React
+    <span>React</span>
   </div>
   <!-- Tailwind -->
-  <div style="display: flex; flex-direction: column; align-items: center;">
+  <div style="display: flex; align-items: center;">
     <img src="./public/icons/tailwindcss.svg" alt="Tailwind CSS" width="32" height="32"/>
-    Tailwind CSS
+    <span>Tailwind CSS</span>
   </div>
   <!-- TMDB API -->
-  <div style="display: flex; flex-direction: column; align-items: center;">
+  <div style="display: flex; align-items: center;">
     <img src="./public/icons/tmdb.svg" alt="TMDB API" width="32" height="32"/>
-    TMDB API
+    <span>TMDB API</span>
   </div>
   <!-- Axios Fetch -->
-  <div style="display: flex; flex-direction: column; align-items: center;">
+  <div style="display: flex; align-items: center;">
     <img src="./public/icons/axios.svg" alt="Axios" width="32" height="32"/>
-    Axios Fetch
+    <span>Axios Fetch</span>
   </div>
   <!-- Framer Motion -->
-  <div style="display: flex; flex-direction: column; align-items: center;">
+  <div style="display: flex; align-items: center;">
     <img src="./public/icons/framer-motion.svg" alt="Framer Motion" width="32" height="32"/>
-    Framer Motion
+    <span>Framer Motion</span>
   </div>
 </div>
 
