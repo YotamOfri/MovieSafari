@@ -71,37 +71,44 @@ MovieSafari is built using several cutting-edge technologies, including:
 
 MovieSafari is built using a variety of technologies:
 
-<div style="display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      width: 100%; gap:20px; flex-wrap: wrap;">
-<!-- React -->
-<div style="display: flex; flex-direction: column;align-items: center;">
-  <img src="./public/icons/react.svg" alt="React" width="32" height="32"/>
- React
+<div align="center">
+
+## Technologies Used
+
+MovieSafari is built using a variety of technologies:
+
+<div style="display: flex; justify-content: center; width: 100%; gap: 20px; flex-wrap: wrap;">
+  <!-- React -->
+  <div style="display: flex; flex-direction: column; align-items: center;">
+    <img src="./public/icons/react.svg" alt="React" width="32" height="32"/>
+    React
+  </div>
+  <!-- Tailwind -->
+  <div style="display: flex; flex-direction: column; align-items: center;">
+    <img src="./public/icons/tailwindcss.svg" alt="Tailwind CSS" width="32" height="32"/>
+    Tailwind CSS
+  </div>
+  <!-- TMDB API -->
+  <div style="display: flex; flex-direction: column; align-items: center;">
+    <img src="./public/icons/tmdb.svg" alt="TMDB API" width="32" height="32"/>
+    TMDB API
+  </div>
+  <!-- Axios Fetch -->
+  <div style="display: flex; flex-direction: column; align-items: center;">
+    <img src="./public/icons/axios.svg" alt="Axios" width="32" height="32"/>
+    Axios Fetch
+  </div>
+  <!-- Framer Motion -->
+  <div style="display: flex; flex-direction: column; align-items: center;">
+    <img src="./public/icons/framer-motion.svg" alt="Framer Motion" width="32" height="32"/>
+    Framer Motion
+  </div>
 </div>
-<!-- Tailwind -->
-<div style="display: flex; flex-direction: column; align-items: center;">
-  <img src="./public/icons/tailwindcss.svg" alt="tailwindcss" width="32" height="32"/>
-  Tailwind 
+
+We also incorporate various other technologies to enhance performance, security, and the overall user experience.
+
 </div>
-<!-- TMDB API -->
-<div style="display: flex; flex-direction: column; align-items: center;">
-  <img src="./public/icons/tmdb.svg" alt="TMDB" width="32" height="32"/>
-  TMDB API
-</div>
-<!-- Axios Fetch -->
-<div style="display: flex; flex-direction: column; align-items: center;">
-  <img src="./public/icons/axios.svg" alt="TMDB" width="32" height="32"/>
-  Axios
-</div>
-<!-- FarmerMotion -->
-<div style="display: flex; flex-direction: column; align-items: center;">
-  <img src="./public/icons/framer-motion.svg" alt="TMDB" width="32" height="32"/>
-  Farmer Motion
-</div>
-</div>
+
 We also incorporate various other technologies to enhance performance, security, and the overall user experience.
 
 ## Contributing
