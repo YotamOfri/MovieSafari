@@ -6,9 +6,7 @@ import AnimefetchPouplar from "../../../hooks/Anime/AnimefetchPouplar";
 import PopularSlider from "../../../components/AnimeComps/Slider/PopularSlider";
 import AnimefetchInfo from "../../../hooks/Anime/AnimefetchInfo";
 export default function Home() {
-  const { data, status } = useQuery(["OnePiece"], () =>
-    AnimefetchInfo("one-piece")
-  );
+  const { data, status } = useQuery(["OnePiece"], () => AnimefetchInfo(21));
   const { data: popularData, status: popularStatus } = useQuery(
     ["PopularAnime"],
     () => AnimefetchPouplar()

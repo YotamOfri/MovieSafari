@@ -9,17 +9,11 @@ export default function Search({ query }) {
     AnimefetchSearch(query)
   );
 
-  let filterdResults;
-  if (status === "success") {
-    filterdResults = data.results?.filter(
-      (result) => !result.id.includes("dub")
-    );
-  }
   return (
     <div className="pt-10 px-4 flex flex-col gap-5 relative text-center text-white font-roboto">
       <div>
         {status === "success" && data?.results?.length > 0 && (
-          <DisplayResults Results={filterdResults}></DisplayResults>
+          <DisplayResults Results={data.results}></DisplayResults>
         )}
         {status === "loading" && (
           <div className="h-5/6 w-full flex justify-center items-start pt-5">

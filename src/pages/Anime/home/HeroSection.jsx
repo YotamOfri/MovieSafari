@@ -3,6 +3,12 @@ import PropTypes from "prop-types";
 import AniListImage from "../../../components/AnimeComps/ImageLoaders/AniListImage";
 import { Link } from "react-router-dom";
 export default function HeroSection({ data }) {
+  const OnePieceData = {
+    title: "One Piece",
+    subTitle: "Best Anime of all Time",
+    description:
+      "One Piece is an epic and timeless adventure that has captured the hearts of fans around the world. It&apos;s a sprawling tale of camaraderie, dreams, and the unbreakable bonds of friendship, set in a richly detailed world filled with diverse islands, cultures, and fantastical creatures.",
+  };
   return (
     <div className="relative w-full">
       <div className="h-[500px] font-roboto md:h-[55vh] md:min-h-[550px] relative flex items-end gap-20">
@@ -18,16 +24,12 @@ export default function HeroSection({ data }) {
         <div className="px-4 h-full pt-40 flex flex-col md:justify-between md:gap-0 gap-20 relative">
           <div className="flex flex-col gap-10 text-white">
             <div className="flex flex-col gap-5">
-              <h1 className="text-5xl font-bold">One Piece</h1>
-              <h3>Best Anime of all Time</h3>
+              <h1 className="text-5xl font-bold">{OnePieceData.title}</h1>
+              <h3>{OnePieceData.subTitle}</h3>
             </div>
             <div className="flex flex-col gap-2">
               <div className="hidden md:block text-white max-w-[700px] max-h-[200px]">
-                One Piece is an epic and timeless adventure that has captured
-                the hearts of fans around the world. It&apos;s a sprawling tale
-                of camaraderie, dreams, and the unbreakable bonds of friendship,
-                set in a richly detailed world filled with diverse islands,
-                cultures, and fantastical creatures.
+                {OnePieceData.description}
               </div>
               <div className="flex gap-3 sm:pb-0 pb-3 sm:flex-row flex-col ">
                 <div className="flex flex-wrap gap-2">
