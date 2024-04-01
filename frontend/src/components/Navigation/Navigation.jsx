@@ -1,24 +1,18 @@
 import Logo from "../../assets/Logo.svg";
 import { AiOutlineSearch } from "react-icons/ai";
-import { MdAccountCircle, MdMenu } from "react-icons/md";
+import { MdMenu } from "react-icons/md";
 import { Link, useLocation } from "react-router-dom";
 import { NavScroll } from "./NavScrollFunc";
 import Desktopmenu from "./Desktopmenu";
 import Mobilemenu from "./Mobilemenu";
-import User from "../../pages/User/User";
 import { useState } from "react";
-import { AnimatePresence } from "framer-motion";
+import Useravatar from "./Useravatar";
 export default function Navigation() {
   const { visible, prevScrollPos } = NavScroll();
   const [isOpen, setIsOpen] = useState(false);
-  const [isUserOpen, setIsUserOpen] = useState(false);
-  document.body.style.overflow = isUserOpen || isOpen ? "hidden" : "auto";
   const location = useLocation();
   const handleClickMenu = () => {
     setIsOpen(!isOpen);
-  };
-  const handleClickUser = () => {
-    setIsUserOpen(!isUserOpen);
   };
   // Styles
   const NavBackground = !(prevScrollPos >= 100) && "md:bg-transparent ";
@@ -37,12 +31,7 @@ export default function Navigation() {
         </Link>
         {/* Middle Section */}
         <Desktopmenu></Desktopmenu>
-        {isOpen && (
-          <Mobilemenu
-            handleClickMenu={handleClickMenu}
-            handleClickUser={handleClickUser}
-          ></Mobilemenu>
-        )}
+        {isOpen && <Mobilemenu handleClickMenu={handleClickMenu}></Mobilemenu>}
         {/* Search Section */}
         <div className="w-1/3 flex items-center justify-end space-x-4">
           <Link
@@ -53,14 +42,9 @@ export default function Navigation() {
               location.pathname.includes("Search") && "text-blue-400"
             }`}
           >
-            <AiOutlineSearch size={30} />
+            <AiOutlineSearch size={35} />
           </Link>
-          <MdAccountCircle
-            size={30}
-            className="cursor-pointer hidden md:flex hover:text-blue-400 duration-300 ease-in-out"
-            onClick={handleClickUser}
-          />
-
+          <Useravatar isMobile={false} />
           {/* Mobile Hamburger */}
           <MdMenu
             onClick={handleClickMenu}
@@ -69,11 +53,6 @@ export default function Navigation() {
           />
         </div>
       </div>
-      <AnimatePresence mode="wait">
-        {isUserOpen && (
-          <User onClick={handleClickUser} isUserOpen={isUserOpen}></User>
-        )}
-      </AnimatePresence>
     </div>
   );
 }

@@ -3,17 +3,12 @@ import Redis from 'ioredis';
 import Fastify from 'fastify';
 import FastifyCors from '@fastify/cors';
 import fs from 'fs';
+import fastifyCookie from '@fastify/cookie';
 
-import books from './routes/books';
-import anime from './routes/anime';
-import manga from './routes/manga';
-import comics from './routes/comics';
-import lightnovels from './routes/light-novels';
-import movies from './routes/movies';
-import meta from './routes/meta';
-import news from './routes/news';
 import chalk from 'chalk';
-import Utils from './utils';
+import connectDB from './config/dbConn';
+import unAuthenticatedRoutes from './routes/routesTypes/unAuthenticatedRoutes';
+import authenticatedRoutes from './routes/routesTypes/authenticatedRoutes';
 
 export const redis =
   process.env.REDIS_HOST &&
@@ -32,8 +27,9 @@ export const tmdbApi = process.env.TMDB_KEY && process.env.TMDB_KEY;
   const PORT = Number(process.env.PORT) || 3000;
 
   await fastify.register(FastifyCors, {
-    origin: '*',
-    methods: 'GET',
+    origin: 'http://localhost:5173',
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS', 'HEAD'], // List all methods you want to allow
+    credentials: true,
   });
 
   if (process.env.NODE_ENV === 'DEMO') {
@@ -130,24 +126,18 @@ export const tmdbApi = process.env.TMDB_KEY && process.env.TMDB_KEY;
     console.warn(
       chalk.yellowBright('TMDB api key not found. the TMDB meta route may not work.'),
     );
-
-  await fastify.register(books, { prefix: '/books' });
-  await fastify.register(anime, { prefix: '/anime' });
-  await fastify.register(manga, { prefix: '/manga' });
-  //await fastify.register(comics, { prefix: '/comics' });
-  await fastify.register(lightnovels, { prefix: '/light-novels' });
-  await fastify.register(movies, { prefix: '/movies' });
-  await fastify.register(meta, { prefix: '/meta' });
-  await fastify.register(news, { prefix: '/news' });
-
-  await fastify.register(Utils, { prefix: '/utils' });
+  await connectDB();
+  await fastify.register(fastifyCookie);
+  await fastify.register(unAuthenticatedRoutes, { prefix: '' });
+  await fastify.register(authenticatedRoutes, { prefix: '' });
 
   try {
     fastify.get('/', (_, rp) => {
       rp.status(200).send(
-        `Welcome to consumet api! 🎉 \n${process.env.NODE_ENV === 'DEMO'
-          ? 'This is a demo of the api. You should only use this for testing purposes.'
-          : ''
+        `Welcome to consumet api! 🎉 \n${
+          process.env.NODE_ENV === 'DEMO'
+            ? 'This is a demo of the api. You should only use this for testing purposes.'
+            : ''
         }`,
       );
     });
@@ -168,6 +158,6 @@ export const tmdbApi = process.env.TMDB_KEY && process.env.TMDB_KEY;
   }
 })();
 export default async function handler(req: any, res: any) {
-  await fastify.ready()
-  fastify.server.emit('request', req, res)
+  await fastify.ready();
+  fastify.server.emit('request', req, res);
 }

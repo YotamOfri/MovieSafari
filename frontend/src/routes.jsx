@@ -3,11 +3,13 @@ import transition from "./transition";
 import { lazy } from "react";
 import Layout from "./Layout";
 import { AnimatePresence } from "framer-motion";
-import { useAuthorization } from "./utils/authUtils";
 import Player from "./pages/Modern/Player/Player";
 import Search from "./pages/Search/SearchMain";
-// LogIn
-const Login = lazy(() => import("./pages/Login/Login"));
+import useAuth from "./hooks/auth/useAuth";
+import { WebsiteContext } from "./context/WebsiteContext";
+import Login from "./pages/Auth/login/Login";
+import Signup from "./pages/Auth/signup/Signup";
+
 // Modern Section
 const Home = lazy(() => import("./pages/Modern/Home/Home"));
 const Information = lazy(() =>
@@ -47,14 +49,22 @@ const routeConfig = [
     path: "tv/player/:id",
     element: <Player type="tv" />,
   },
+  {
+    path: "login",
+    element: <Login />,
+  },
+  {
+    path: "signup",
+    element: <Signup />,
+  },
 ];
 function MainRoutes() {
-  const { isAuthorized, setIsAuthorized } = useAuthorization();
-  const password = import.meta.env.VITE_PASSWORD;
+  const { user, setUser } = useAuth();
+  const Contextobject = { user, setUser };
   return (
     <>
-      <AnimatePresence mode="wait">
-        {isAuthorized === password ? (
+      <WebsiteContext.Provider value={Contextobject}>
+        <AnimatePresence mode="wait">
           <Routes>
             {routeConfig.map((route, index) => (
               <Route key={index} path={route.path} element={route.element}>
@@ -72,10 +82,8 @@ function MainRoutes() {
               </Route>
             ))}
           </Routes>
-        ) : (
-          <Login setIsAuthorized={setIsAuthorized} />
-        )}
-      </AnimatePresence>
+        </AnimatePresence>
+      </WebsiteContext.Provider>
     </>
   );
 }

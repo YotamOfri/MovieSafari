@@ -4,6 +4,7 @@ import DetailsMovieUrl from "../../utils/DetailsMovieUrl";
 import fetchByUrl from "../../hooks/fetchByurl";
 import ImageLoad from "../imageLoad";
 import Buttons from "./Buttons";
+import BookmarkBtn from "../Inputs/Bookmark";
 export default function HeroSection({ id, type, Code }) {
   const url = DetailsMovieUrl(id, type);
   const { data, status } = useQuery([`HeroSectionHomeDetails +${Code}`], () =>
@@ -14,8 +15,8 @@ export default function HeroSection({ id, type, Code }) {
       <div className="h-[300px] font-roboto md:h-[55vh] md:min-h-[550px] relative flex items-end gap-20">
         {status === "success" && (
           <>
-            <div className="absolute md:-bottom-[40%] -bottom-[60%] left-0 w-full h-96 bg-gradient-to-b from-transparent to-[#0c0f18] -z-[1]"></div>
-            <div className="absolute top-0 md:h-[140%] h-[160%] w-full -z-10 ">
+            <div className="absolute md:-bottom-[50%] -bottom-[60%] left-0 w-[100vw] h-96 bg-gradient-to-b from-transparent to-[#0c0f18] -z-[1]" />
+            <div className="absolute top-0 md:h-[140%] h-[160%] w-full -z-10">
               <ImageLoad
                 src={data?.backdrop_path}
                 className="object-cover h-full w-full opacity-60 absolute -z-10 "
@@ -23,7 +24,7 @@ export default function HeroSection({ id, type, Code }) {
             </div>
           </>
         )}
-        <div className=" px-4 h-full pt-28 md:pt-40 flex flex-col justify-between relative">
+        <div className="px-4 w-full h-full pt-28 md:pt-40 flex flex-col justify-between relative">
           <div className="flex flex-col gap-2 sm:gap-10">
             <div>
               <h1 className="text-4xl md:text-5xl text-white">
@@ -31,7 +32,7 @@ export default function HeroSection({ id, type, Code }) {
               </h1>
               <h2>{data?.tagline}</h2>
             </div>
-            <div className="flex flex-col  gap-2">
+            <div className="flex flex-col gap-2">
               <div className="hidden md:block text-white max-w-[700px] max-h-[200px]">
                 {data?.overview}
               </div>
@@ -63,7 +64,10 @@ export default function HeroSection({ id, type, Code }) {
               </div>
             </div>
           </div>
-          <Buttons ID={id} type={type}></Buttons>
+          <div className="flex justify-between w-full items-center">
+            <Buttons ID={id} type={type}></Buttons>
+            <BookmarkBtn className="cursor-pointer"></BookmarkBtn>
+          </div>
         </div>
       </div>
     </div>

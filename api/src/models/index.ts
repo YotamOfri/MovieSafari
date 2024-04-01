@@ -1,3 +1,3 @@
 import { IBookProviderParams, LibgenBook } from './types';
-
-export { IBookProviderParams, LibgenBook };
+import User from './user';
+export { IBookProviderParams, LibgenBook, User };

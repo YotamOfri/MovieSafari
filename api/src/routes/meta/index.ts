@@ -5,6 +5,7 @@ import anilist from './anilist';
 import anilistManga from './anilist-manga';
 import mal from './mal';
 import tmdb from './tmdb';
+import verifyJWT from '../../middleware/verifyJWT';
 const routes = async (fastify: FastifyInstance, options: RegisterOptions) => {
   await fastify.register(anilist, { prefix: '/anilist' });
   await fastify.register(anilistManga, { prefix: '/anilist-manga' });

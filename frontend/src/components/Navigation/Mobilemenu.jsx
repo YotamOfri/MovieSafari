@@ -4,7 +4,8 @@ import { MdAccountCircle } from "react-icons/md";
 import { motion } from "framer-motion";
 import Backdrop from "../Animations/Backdrop";
 import PropTypes from "prop-types";
-export default function Mobilemenu({ handleClickMenu, handleClickUser }) {
+import Useravatar from "./Useravatar";
+export default function Mobilemenu({ handleClickMenu }) {
   const location = useLocation();
   // Styles
   const dropIn = {
@@ -31,11 +32,7 @@ export default function Mobilemenu({ handleClickMenu, handleClickUser }) {
           transition={{ duration: 0 }}
         >
           <div className="w-full flex justify-between">
-            <MdAccountCircle
-              onClick={handleClickUser}
-              size={30}
-              className="cursor-pointer flex md:hidden hover:text-blue-400 duration-300 ease-in-out"
-            ></MdAccountCircle>
+            <Useravatar isMobile={true} />
             <AiOutlineClose
               onClick={handleClickMenu}
               size={30}
@@ -71,5 +68,4 @@ export default function Mobilemenu({ handleClickMenu, handleClickUser }) {
 }
 Mobilemenu.propTypes = {
   handleClickMenu: PropTypes.func.isRequired,
-  handleClickUser: PropTypes.func.isRequired,
 };
