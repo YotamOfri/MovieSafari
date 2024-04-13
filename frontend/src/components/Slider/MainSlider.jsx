@@ -83,7 +83,7 @@ export default function MainSlider({ data, TypeLink }) {
             Trending {toPascalCase(data[0].media_type)}s
           </p>
         )}
-        <AnimatePresence>
+        <AnimatePresence key={"slider"}>
           {isHover && (
             <div className="flex relative h-8 text-gray-400/80">
               <motion.div

@@ -5,7 +5,10 @@ import fetchByUrl from "../../hooks/fetchByurl";
 import ImageLoad from "../imageLoad";
 import Buttons from "./Buttons";
 import BookmarkBtn from "../Inputs/Bookmark";
+import { useContext } from "react";
+import { WebsiteContext } from "../../context/WebsiteContext";
 export default function HeroSection({ id, type, Code }) {
+  const { user } = useContext(WebsiteContext);
   const url = DetailsMovieUrl(id, type);
   const { data, status } = useQuery([`HeroSectionHomeDetails +${Code}`], () =>
     fetchByUrl(url)
@@ -66,7 +69,13 @@ export default function HeroSection({ id, type, Code }) {
           </div>
           <div className="flex justify-between w-full items-center">
             <Buttons ID={id} type={type}></Buttons>
-            <BookmarkBtn className="cursor-pointer"></BookmarkBtn>
+            {user && (
+              <BookmarkBtn
+                className="cursor-pointer"
+                id={id}
+                type={type}
+              ></BookmarkBtn>
+            )}
           </div>
         </div>
       </div>

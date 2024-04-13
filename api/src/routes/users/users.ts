@@ -65,14 +65,22 @@ const routes = async (fastify: FastifyInstance, options: RegisterOptions) => {
   // @access Private
   const handleUpdateInformation = (field: string) => {
     return async (request: FastifyRequest, reply: FastifyReply) => {
-      const { itemId, type } = request.body as usersWatchingRequest;
-      if (!itemId || !request.id)
+      const { item, type, action } = request.body as usersWatchingRequest;
+      console.log(item, type, action, 'item, type, action');
+
+      if (!item || !request.id)
         return reply.status(400).send({ message: 'itemId and userId required' });
+
       const updateField = type === 'anime' ? `anime.${field}` : `modern.${field}`;
-      await User.findByIdAndUpdate(request.id, {
-        $addToSet: { [updateField]: itemId.toString() },
-      });
-      reply.status(202).send({ message: `Added to ${field}` });
+      const updateOperation =
+        action === 'remove'
+          ? { $pull: { [updateField]: item } }
+          : { $addToSet: { [updateField]: item } };
+
+      await User.findByIdAndUpdate(request.id, updateOperation);
+
+      const actionMessage = action === 'remove' ? 'Removed from' : 'Added to';
+      reply.status(202).send({ message: `${actionMessage} bookmarks` });
     };
   };
 

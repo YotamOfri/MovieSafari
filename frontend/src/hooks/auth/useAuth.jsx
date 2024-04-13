@@ -4,17 +4,22 @@ import userInfo from "../user/userInfo";
 
 const useAuth = () => {
   const [user, setUser] = useState(null);
-  const { data, status } = useQuery({
+  const { data, status, refetch } = useQuery({
     queryKey: ["userInformation"],
     queryFn: userInfo,
     retry: false,
-    enabled: user === null,
   });
-  useEffect(() => {
-    if (status === "success" && data) setUser(data);
-  }, [status, data]);
 
-  return { user, setUser, status };
+  useEffect(() => {
+    if (status === "success") {
+      setUser(data);
+    }
+  }, [status, data]);
+  const refreshUserInfo = () => {
+    refetch();
+  };
+
+  return { user, setUser, status, refreshUserInfo };
 };
 
 export default useAuth;

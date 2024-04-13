@@ -20,7 +20,7 @@ export default function SubmitButton({ onClick, isPending, text }) {
           text
         )}
       </p>
-      <AnimatePresence>
+      <AnimatePresence key={"submitButton"}>
         {mosueHover && !isPending && (
           <motion.div
             className="absolute"

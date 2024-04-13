@@ -1,17 +1,22 @@
 import mongoose, { Schema, Document } from 'mongoose';
-
+import { ModernItem } from './requests';
+import { modernItemSchema } from './requests';
 export interface IUser extends Document {
   username: string;
   email: string;
   password: string;
-  modern: { bookmarks: string[]; watching: string[]; seen: string[] };
+  modern: {
+    bookmarks: [ModernItem];
+    watching: [ModernItem];
+    seen: [ModernItem];
+  };
   anime: { bookmarks: string[]; watching: string[]; seen: string[] };
 }
 export interface IUserInput {
   username: string;
   email: string;
   password: string;
-  modern: { bookmarks: string[]; watching: string[]; seen: string[] };
+  modern: { bookmarks: ModernItem[]; watching: ModernItem[]; seen: ModernItem[] };
   anime: { bookmarks: string[]; watching: string[]; seen: string[] };
 }
 const userSchema: Schema = new Schema({
@@ -19,9 +24,9 @@ const userSchema: Schema = new Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   modern: {
-    bookmarks: [{ type: String }],
-    watching: [{ type: String }],
-    seen: [{ type: String }],
+    bookmarks: [modernItemSchema],
+    watching: [modernItemSchema],
+    seen: [modernItemSchema],
   },
   anime: {
     bookmarks: [{ type: String }],

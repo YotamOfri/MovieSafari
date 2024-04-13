@@ -14,7 +14,7 @@ export default function ImageLoad({ className, src, imgclass, size }) {
     }
   }, [src, size]);
   return (
-    <div className={`bg-slate-900 shadow-md ${className} `}>
+    <div className={`bg-transparent shadow-md ${className} `}>
       <img
         id="preload-image"
         src={`https://image.tmdb.org/t/p/${

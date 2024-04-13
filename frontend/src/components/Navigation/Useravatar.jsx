@@ -35,10 +35,20 @@ export default function Useravatar({ isMobile }) {
             <DropdownMenuContent>
               <DropdownMenuLabel>My Account</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>Profile</DropdownMenuItem>
-              <DropdownMenuItem>Bookmarks</DropdownMenuItem>
+              <Link to={"/profile"}>
+                <DropdownMenuItem className="cursor-pointer">
+                  Profile
+                </DropdownMenuItem>
+              </Link>
+              <Link to={"/bookmarks"}>
+                <DropdownMenuItem className="cursor-pointer">
+                  Bookmarks
+                </DropdownMenuItem>
+              </Link>
               <div onClick={handleLogout}>
-                <DropdownMenuItem>Logout</DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer">
+                  Logout
+                </DropdownMenuItem>
               </div>
             </DropdownMenuContent>
           </DropdownMenu>

@@ -1,19 +1,21 @@
 import PropTypes from "prop-types";
-export default function Frame({ sandbox, src }) {
+export default function Frame({ sandbox, src, className }) {
   return (
-    <div className="h-[90vh] w-full">
+    <div className={`${className} w-full`}>
       {sandbox ? (
         <iframe
           src={src}
           sandbox="allow-scripts allow-same-origin allow-popups"
           allowFullScreen={true}
-          className="h-[90vh] w-full"
+          className="h-full w-full"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         ></iframe>
       ) : (
         <iframe
           src={src}
           allowFullScreen={true}
-          className="h-[90vh] w-full"
+          className="h-full w-full"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         ></iframe>
       )}
     </div>
@@ -22,4 +24,5 @@ export default function Frame({ sandbox, src }) {
 Frame.propTypes = {
   sandbox: PropTypes.bool.isRequired,
   src: PropTypes.string.isRequired,
+  className: PropTypes.string.isRequired,
 };

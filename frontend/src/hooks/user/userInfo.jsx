@@ -6,6 +6,7 @@ export default async function userInfo() {
       headers: { tokencheck: "true" },
       withCredentials: true,
     });
+    console.log(response.data.failed, "response.data");
     if (response.data.failed) return false;
     return response.data;
   } catch (error) {
