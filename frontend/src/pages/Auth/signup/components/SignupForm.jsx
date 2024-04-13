@@ -1,8 +1,8 @@
 import { useEffect, useContext, useRef, useState } from "react";
-import { WebsiteContext } from "@/context/WebsiteContext";
-import { Blackinput } from "@/components/Inputs/Blackinput";
+import { WebsiteContext } from "../../../../context/WebsiteContext";
+import { Blackinput } from "../../../../components/Inputs/Blackinput";
 import { useMutation } from "@tanstack/react-query";
-import createAccount from "@/hooks/auth/createAccount";
+import createAccount from "../../../../hooks/auth/createAccount";
 import Seperator from "../../components/Seperator";
 import Socialbtns from "../../components/Socialbtns/Socialbtns";
 import SubmitButton from "../../components/SubmitButton";
