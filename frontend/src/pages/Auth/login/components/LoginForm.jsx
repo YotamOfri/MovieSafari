@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState, useContext } from "react";
-import { WebsiteContext } from "../../../../context/websiteContext";
-import { Blackinput } from "../../../../components/Inputs/Blackinput";
+import { WebsiteContext } from "@/context/websiteContext";
+import { Blackinput } from "@/components/Inputs/Blackinput";
 import Seperator from "../../components/Seperator";
 import Socialbtns from "../../components/Socialbtns/Socialbtns";
 import SubmitButton from "../../components/SubmitButton";
-import login from "../../../../hooks/auth/login";
+import login from "@/hooks/auth/login";
 import { useMutation } from "@tanstack/react-query";
 export default function Loginform() {
   const { setUser } = useContext(WebsiteContext);
