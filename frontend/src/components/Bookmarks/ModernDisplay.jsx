@@ -2,11 +2,11 @@ import PropTypes from "prop-types";
 import { useContext, useEffect } from "react";
 import { useQueries, useMutation } from "@tanstack/react-query";
 import DetailsMovieUrl from "../../utils/DetailsMovieUrl";
-import fetchByUrl from "@/hooks/fetchByUrl";
+import fetchByUrl from "../../hooks/fetchByurl";
 import Bookmark from "./Bookmark";
-import HandleBookMark from "@/hooks/user/actions/HandleBookMark";
+import HandleBookMark from "../../hooks/user/actions/HandleBookMark";
 import { toast } from "sonner";
-import { WebsiteContext } from "@/context/WebsiteContext";
+import { WebsiteContext } from "../../context/WebsiteContext";
 export default function ModernDisplay({ bookmarks }) {
   const { refreshUserInfo } = useContext(WebsiteContext);
   const {
