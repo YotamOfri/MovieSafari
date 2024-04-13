@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Loading from "../../../components/animations/Loading";
+import Loading from "../../../components/Animations/Loading";
 import { RightArrowSVG } from "../../../components/AdvancedIcons/RightArrowSVG";
 import { AnimatePresence, motion } from "framer-motion";
 import PropTypes from "prop-types";
