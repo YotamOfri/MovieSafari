@@ -32,7 +32,7 @@ export default function ActionBtns({
   }, [user, informationObject]);
   const hasMoreEpisodes =
     informationObject.episode <
-    data.seasons[informationObject.season].episode_count;
+    data?.seasons[informationObject.season]?.episode_count;
   const hasPreviousEpisodes = informationObject.episode > 1;
 
   const handleEpisodeClick = (delta) => {
