@@ -1,14 +1,14 @@
 import mongoose, { Schema, Document } from 'mongoose';
-import { ModernItem } from './requests';
-import { modernItemSchema } from './requests';
+import { ModernItem, IShow } from './types';
+import { bookMarkSchema, showSchema } from './requests';
 export interface IUser extends Document {
   username: string;
   email: string;
   password: string;
   modern: {
     bookmarks: [ModernItem];
-    watching: [ModernItem];
-    seen: [ModernItem];
+    watching: [IShow];
+    seen: [IShow];
   };
   anime: { bookmarks: string[]; watching: string[]; seen: string[] };
 }
@@ -16,22 +16,22 @@ export interface IUserInput {
   username: string;
   email: string;
   password: string;
-  modern: { bookmarks: ModernItem[]; watching: ModernItem[]; seen: ModernItem[] };
-  anime: { bookmarks: string[]; watching: string[]; seen: string[] };
+  modern: { bookmarks: ModernItem[]; watching: IShow[]; seen: IShow[] };
+  anime: { bookmarks: string[]; watching: IShow[]; seen: IShow[] };
 }
 const userSchema: Schema = new Schema({
   username: { type: String, required: true, unique: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   modern: {
-    bookmarks: [modernItemSchema],
-    watching: [modernItemSchema],
-    seen: [modernItemSchema],
+    bookmarks: [bookMarkSchema],
+    watching: [showSchema],
+    seen: [showSchema],
   },
   anime: {
-    bookmarks: [{ type: String }],
-    watching: [{ type: String }],
-    seen: [{ type: String }],
+    bookmarks: [bookMarkSchema],
+    watching: [showSchema],
+    seen: [showSchema],
   },
 });
 

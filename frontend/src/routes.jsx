@@ -56,7 +56,6 @@ function MainRoutes() {
   const { user, setUser, refreshUserInfo } = useAuth();
   const Contextobject = { user, setUser, refreshUserInfo };
   if (user === null) {
-    console.log("Loading...");
     return (
       <div className="w-dvw h-dvh flex justify-center items-center">
         <Loading color={"stroke-white z-10"} size={"w-6 h-6"}></Loading>

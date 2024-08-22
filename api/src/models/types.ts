@@ -35,3 +35,46 @@ interface Hashes {
   SHA256: string[];
   TTH: string;
 }
+export type UserWatchingType = 'anime' | 'modern';
+export interface Episode {
+  episodeId: string;
+  episodeNumber: number;
+  episodeName: string;
+  watchDate: Date;
+}
+export interface Season {
+  seasonNumber: number;
+  episodes: Episode[];
+}
+
+export interface ItemInformationRequest {
+  title: string;
+  itemId: string;
+  itemType: string;
+  currentSeason: number;
+  currentEpisode: number;
+  watchHistory: Array<Season>;
+}
+export type ModernItem = {
+  itemId: Number;
+  itemType: String;
+};
+interface IEpisode {
+  episode_id: string;
+  episode_name: string;
+  watch_date: Date;
+}
+
+// Define Season Type
+interface ISeason {
+  season_id: string;
+  season_number: number;
+  episodes: IEpisode[];
+}
+
+// Define Show Type
+export interface IShow {
+  show_id: string;
+  show_name: string;
+  seasons: ISeason[];
+}

@@ -5,7 +5,7 @@ import { useMutation } from "@tanstack/react-query";
 import HandleBookMark from "../../hooks/user/actions/HandleBookMark";
 import { toast } from "sonner";
 import PropTypes from "prop-types";
-export default function BookmarkBtn({ className, id, type }) {
+export default function BookmarkBtn({ className, id, type, children }) {
   const { user, refreshUserInfo } = useContext(WebsiteContext);
   const [isBookmarked, setIsBookmarked] = useState(false);
   useEffect(() => {
@@ -49,12 +49,13 @@ export default function BookmarkBtn({ className, id, type }) {
     }
   }, [isSuccess, error]);
   return (
-    <div>
+    <div className="flex justify-center items-center" onClick={handleBookmark}>
       {isBookmarked ? (
-        <BookmarkCheck onClick={handleBookmark} className={className} />
+        <BookmarkCheck className={className} />
       ) : (
-        <Bookmark onClick={handleBookmark} className={className} />
+        <Bookmark className={className} />
       )}
+      {children}
     </div>
   );
 }

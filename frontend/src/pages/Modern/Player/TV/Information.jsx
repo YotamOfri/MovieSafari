@@ -13,7 +13,6 @@ export default function Information({
   type,
   productionCompanies,
   productionCountries,
-  id,
 }) {
   const additionalInformation = [
     { title: "Type", data: type },
@@ -73,10 +72,9 @@ export default function Information({
 }
 Information.propTypes = {
   type: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
   banner: PropTypes.string,
   title: PropTypes.string,
-  rating: PropTypes.number,
+  rating: PropTypes.string,
   genres: PropTypes.array,
   date: PropTypes.string,
   duration: PropTypes.number,

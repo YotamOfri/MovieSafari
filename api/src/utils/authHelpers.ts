@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import { User } from '../models';
 import { FastifyReply } from 'fastify';
-import {  IUser } from '../models/user';
+import { IUser } from '../models/user';
 
 // Adjust the response parameter type to Fastify's Reply interface
 function generateTokensAndSetCookie(res: FastifyReply, user: IUser): boolean {

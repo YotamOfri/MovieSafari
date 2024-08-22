@@ -46,5 +46,5 @@ export default function Collections({ collectionId, currentId }) {
 }
 Collections.propTypes = {
   collectionId: PropTypes.number,
-  currentId: PropTypes.number,
+  currentId: PropTypes.string,
 };

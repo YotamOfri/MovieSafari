@@ -19,7 +19,6 @@ export default function MoviePlayer() {
   const handleServerChange = (server) => {
     setActiveServer(server);
   };
-  console.log(data, "data");
   if (status === "loading") {
     return (
       <div className="w-dvw h-dvh flex justify-center items-center">
@@ -49,34 +48,29 @@ export default function MoviePlayer() {
             <p className="text-center">
               If current server doesn't work please try other server below.{" "}
             </p>
-            <div className="flex gap-3 md:bg-black rounded-3xl text-gray-500 flex-wrap justify-center">
-              <button
-                className={`flex gap-2 p-3 md:px-3 px-5 md:rounded-l-3xl rounded-xl duration-300 ease-in-out  ${
-                  activeServer === 0 ? "text-white bg-slate-900" : "bg-zinc-950"
-                }`}
-                onClick={() => handleServerChange(0)}
-              >
-                VidPlay
-                <ServerIcon />
-              </button>
-              <button
-                className={`flex gap-2 p-3 md:px-3 px-5 md:rounded-none rounded-xl  duration-300 ease-in-out  ${
-                  activeServer === 1 ? "text-white bg-slate-900" : "bg-zinc-950"
-                }`}
-                onClick={() => handleServerChange(1)}
-              >
-                VidSrc
-                <ServerIcon />
-              </button>
-              <button
-                className={`flex gap-2 p-3 md:px-3 px-5 rounded-xl md:rounded-r-3xl duration-300 ease-in-out ${
-                  activeServer === 2 ? "text-white bg-slate-900" : "bg-zinc-950"
-                }`}
-                onClick={() => handleServerChange(2)}
-              >
-                Multiembed
-                <ServerIcon />
-              </button>
+            <div className="flex gap-3 md:bg-zinc-950 rounded-3xl text-gray-500 flex-wrap justify-center">
+              {["VidSrc", "VidSrc (old)", "Multiembed", "VidPlay"].map(
+                (serverName, index) => (
+                  <button
+                    key={index}
+                    className={`flex gap-2 p-3 md:px-3 px-5 ${
+                      activeServer === index
+                        ? "text-white bg-slate-900"
+                        : "bg-zinc-950"
+                    } ${
+                      index === 0
+                        ? "md:rounded-l-3xl rounded-xl"
+                        : index === 1
+                        ? "rounded-xl"
+                        : "md:rounded-r-3xl rounded-xl"
+                    } duration-300 ease-in-out`}
+                    onClick={() => setActiveServer(index)}
+                  >
+                    {serverName}
+                    <ServerIcon />
+                  </button>
+                )
+              )}
             </div>
             <div className="flex lg:flex-row flex-col-reverse px-5 gap-2 w-full">
               <Information
@@ -100,7 +94,7 @@ export default function MoviePlayer() {
           </div>
           <Link
             to={`/${"movie"}/${id}`}
-            className="absolute top-5 left-2 md:text-gray-500 text-white md:hover:text-white hover:scale-110 duration-300 ease-in-out"
+            className="absolute top-5 left-2 md:text-gray-500 text-white md:hover:text-white hover:scale-110 duration-300 ease-in-out z-50"
           >
             <BiArrowBack size={32} />
           </Link>

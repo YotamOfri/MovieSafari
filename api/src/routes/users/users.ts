@@ -6,7 +6,7 @@ import fastify, {
 } from 'fastify';
 import bycrpt from 'bcrypt';
 import { User } from '../../models';
-import { usersWatchingRequest } from '../../models/requests';
+import { userBookMarkRequest, userWatchingRequest } from '../../models/requests';
 const routes = async (fastify: FastifyInstance, options: RegisterOptions) => {
   fastify.get('/', async (request: FastifyRequest, reply: FastifyReply) => {
     const users = await User.find().select('-password');
@@ -65,7 +65,7 @@ const routes = async (fastify: FastifyInstance, options: RegisterOptions) => {
   // @access Private
   const handleUpdateInformation = (field: string) => {
     return async (request: FastifyRequest, reply: FastifyReply) => {
-      const { item, type, action } = request.body as usersWatchingRequest;
+      const { item, type, action } = request.body as userBookMarkRequest;
       console.log(item, type, action, 'item, type, action');
 
       if (!item || !request.id)
@@ -83,7 +83,68 @@ const routes = async (fastify: FastifyInstance, options: RegisterOptions) => {
       reply.status(202).send({ message: `${actionMessage} bookmarks` });
     };
   };
+  // const handleWatching = async (request: FastifyRequest, reply: FastifyReply) => {
+  //   const { itemInformation } = request.body as userWatchingRequest;
 
+  //   if (
+  //     itemInformation.itemId == null ||
+  //     itemInformation.itemType == null ||
+  //     itemInformation.currentSeason == null ||
+  //     itemInformation.currentEpisode == null
+  //   ) {
+  //     return reply.status(400).send({
+  //       message: 'User ID, item ID, season number, and episode number are required.',
+  //     });
+  //   }
+
+  //   const seasonKey = `season${itemInformation.currentSeason}`;
+  //   const userWatchingPath = itemType === 'anime' ? 'anime.watching' : 'modern.watching';
+
+  //   // MongoDB update operations
+  //   const setOperation = {
+  //     [`${userWatchingPath}.$.currentSeason`]: seasonNumber,
+  //     [`${userWatchingPath}.$.currentEpisode`]: episodeNumber,
+  //   };
+  //   const addToSetOperation = {
+  //     [`modern.watching.$.watchHistory.${seasonKey}`]: episodeNumber,
+  //   };
+
+  //   // First, try to update the user's current watching episode and season
+  //   let updateResult = await User.findOneAndUpdate(
+  //     { _id: userId, [`${userWatchingPath}.itemId`]: itemId },
+  //     {
+  //       $set: setOperation,
+  //       $addToSet: addToSetOperation,
+  //     },
+  //     { new: true },
+  //   );
+
+  //   // If the user does not have a current watching record, create one
+  //   if (!updateResult) {
+  //     const newWatching = {
+  //       itemId: itemId,
+  //       itemType: itemType,
+  //       currentSeason: seasonNumber,
+  //       currentEpisode: episodeNumber,
+  //       watchHistory: {
+  //         [seasonKey]: [episodeNumber],
+  //       },
+  //     };
+
+  //     updateResult = await User.findByIdAndUpdate(
+  //       userId,
+  //       { $push: { [userWatchingPath]: newWatching } },
+  //       { new: true },
+  //     );
+  //   }
+
+  //   // Check if the update or creation was successful
+  //   if (updateResult) {
+  //     reply.status(200).send({ message: 'Watching updated successfully' });
+  //   } else {
+  //     reply.status(500).send({ message: 'Failed to update watching status' });
+  //   }
+  // };
   fastify.post('/watching', handleUpdateInformation('watching'));
   fastify.post('/seen', handleUpdateInformation('seen'));
   fastify.post('/bookmarks', handleUpdateInformation('bookmarks'));
