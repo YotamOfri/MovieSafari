@@ -62,7 +62,7 @@ export default function TvPlayer() {
           If current server doesn&apos;t work please try other server below.
         </p>
         <div className="flex gap-3 md:bg-zinc-950 rounded-3xl text-gray-500 flex-wrap justify-center">
-          {["VidSrc", "VidSrc (old)", "Multiembed", "VidPlay"].map(
+          {["VidSrc", "VidIcu", "Multiembed", "VidPlay"].map(
             (serverName, index) => (
               <button
                 key={index}
